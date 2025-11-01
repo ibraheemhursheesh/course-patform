@@ -25,6 +25,9 @@ export async function createClient() {
           }
         },
       },
+      // fetchOptions: {
+      //   next: { revalidate: 60 },
+      // },
     }
   );
 }

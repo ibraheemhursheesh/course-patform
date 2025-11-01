@@ -50,6 +50,7 @@ export default function Comment({ commentObj, user }: CommentProps) {
             />
             <div className="flex gap-3 items-center mt-3 ">
               <Button
+                type="button"
                 variant="outline"
                 className="ml-auto"
                 onClick={() => setIsEditing(false)}
@@ -57,9 +58,7 @@ export default function Comment({ commentObj, user }: CommentProps) {
                 {" "}
                 Cancel
               </Button>
-              <Button type="submit" onClick={() => setIsEditing(false)}>
-                Update
-              </Button>
+              <Button type="submit">Update</Button>
             </div>
           </form>
         ) : (

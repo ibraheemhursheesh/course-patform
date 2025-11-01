@@ -8,10 +8,11 @@ import "@/app/mux-player.css";
 
 import CommentsSection from "@/components/CommentSection";
 import { Suspense } from "react";
+import CommentsLoader from "@/components/CommentsLoader";
 
 export default async function Page({ params }) {
   const { lesson } = await params;
-  console.log("lesson param:", lesson);
+  console.log("lesson param =>", lesson);
 
   return (
     <div className="w-full">
@@ -23,7 +24,9 @@ export default async function Page({ params }) {
         // onEnded={() => console.log("onEnded")}
       />
 
-      <CommentsSection lesson={lesson} />
+      <Suspense fallback={<CommentsLoader />}>
+        <CommentsSection lesson={lesson} />
+      </Suspense>
 
       <div className="mt-50"></div>
     </div>
