@@ -1,6 +1,6 @@
 // @ts-nocheck
 "use client";
-import React from "react";
+import React, { startTransition } from "react";
 
 import { deleteComment } from "@/utils/actions";
 import { EllipsisVertical } from "lucide-react";
@@ -32,15 +32,30 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { usePathname } from "next/navigation";
 
 export default function CommentActions({
   commentId,
   setIsEditing,
+  pathname,
+  onOptimisticAdd,
 }: {
   commentId: string;
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  pathname: string;
+  onOptimisticAdd: (comment: any) => void;
 }) {
   const [showAlertDialog, setShowAlertDialog] = React.useState(false);
+
+  function handleDelete() {
+    const optimistic = {
+      action: "deleteComment",
+      commentId,
+    };
+    startTransition(() => {
+      onOptimisticAdd && onOptimisticAdd(optimistic);
+    });
+  }
 
   return (
     <>
@@ -74,7 +89,8 @@ export default function CommentActions({
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <form action={deleteComment}>
+            <form action={deleteComment} onSubmit={handleDelete}>
+              <input type="hidden" name="currentPath" value={pathname} />
               <input type="hidden" name="commentId" value={commentId} />
               <AlertDialogAction type="submit">Continue</AlertDialogAction>
             </form>
