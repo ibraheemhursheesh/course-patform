@@ -1,7 +1,7 @@
 // @ts-nocheck
 "use client";
 
-import React from "react";
+import React, { startTransition, useMemo, useOptimistic } from "react";
 
 import SubmitFormButton from "@/components/SumbitFormButton";
 
@@ -10,6 +10,7 @@ import CommentActions from "@/components/CommentActions";
 import { ArrowBigUp } from "lucide-react";
 import { Textarea } from "./ui/textarea";
 import { updateComment } from "@/utils/actions";
+import { toggleUpvote } from "@/utils/actions";
 import { usePathname } from "next/navigation";
 import path from "path";
 
@@ -28,18 +29,52 @@ import path from "path";
 //   onOptimisticAdd?: (comment: any) => void;
 // }
 
-export default function Comment({ commentObj, user, onOptimisticAdd }) {
+export default function Comment({
+  initialQuestionUpvotes,
+  commentObj,
+  user,
+  onOptimisticAdd,
+}) {
   const [isEditing, setIsEditing] = React.useState(false);
-  // const [state, formAction, isPending] = React.useActionState(
-  //   updateComment,
-  //   null
-  // );
-  // console.log(isPending);
+
+  const [questionUpvotes, addOptimistic] = useOptimistic(
+    initialQuestionUpvotes,
+    (state, item) => {
+      // console.log("optimistic", item);
+      return item.action === "addUpvote"
+        ? [
+            ...state,
+            {
+              commenter: item.commenter,
+              commentId: item.commentId,
+              lectureId: item.lectureId,
+            },
+          ]
+        : state.filter((upvote) => upvote.commenter !== item.commenter);
+    }
+  );
+
+  const isUserUpvoted = useMemo(
+    function () {
+      return questionUpvotes.some((upvote) => upvote.commenter === user.id);
+    },
+    [questionUpvotes, user.id]
+  );
+
+  console.log("isUserUpvoted => ", isUserUpvoted);
+
+  // const [isClicked, setIsClicked] = React.useState(false);
 
   const pathname = usePathname();
 
-  const { commentId, commenterName, commenterId, createdAt, comment, upvotes } =
-    commentObj;
+  const {
+    commentId,
+    commenterName,
+    commenterId,
+    createdAt,
+    comment,
+    lectureId,
+  } = commentObj;
   const bindedUpdateComment = updateComment.bind(null, { commentId, pathname });
 
   const handleSubmit = async (e) => {
@@ -49,6 +84,22 @@ export default function Comment({ commentObj, user, onOptimisticAdd }) {
     // await the server action so it runs to completion before closing the editor
     await bindedUpdateComment(formData);
     setIsEditing(false);
+  };
+
+  const upvoteComment = async (e) => {
+    // console.log("upvoteComment is called");
+
+    const optimistic = {
+      commenter: user.id,
+      commentId: commentId,
+      lectureId: lectureId,
+      action: isUserUpvoted ? "removeUpvote" : "addUpvote",
+    };
+    startTransition(() => {
+      addOptimistic(optimistic);
+    });
+
+    await toggleUpvote(!isUserUpvoted, commentId, lectureId, pathname);
   };
 
   const date = new Date(createdAt).toLocaleDateString("en-US", {
@@ -90,11 +141,12 @@ export default function Comment({ commentObj, user, onOptimisticAdd }) {
             <p className="mt-2">{comment}</p>
             <div className="flex items-center gap-3 mt-3">
               <Button
+                onClick={upvoteComment}
                 className={`min-w-[65px] text-center shrink-0`}
                 variant="secondary"
               >
-                <ArrowBigUp />
-                {upvotes.length}
+                <ArrowBigUp fill={isUserUpvoted ? "black" : "none"} />
+                {questionUpvotes.length}
               </Button>
               <Button
                 className="min-w-[65px] text-center shrink-0"

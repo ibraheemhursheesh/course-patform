@@ -12,7 +12,7 @@ import CommentsLoader from "@/components/CommentsLoader";
 
 export default async function Page({ params }) {
   const { lesson } = await params;
-  console.log("lesson param =>", lesson);
+  // console.log("lesson param =>", lesson);
 
   return (
     <div className="w-full">

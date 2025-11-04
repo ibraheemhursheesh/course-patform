@@ -4,8 +4,14 @@ import React, { useOptimistic } from "react";
 import CreateCommentForm from "./CreateCommentForm";
 import Comment from "./Comment";
 
-export default function Comments({ initialComments = [], lesson, user }) {
+export default function Comments({
+  allQuestionUpvotes,
+  initialComments = [],
+  lesson,
+  user,
+}) {
   // reducer: put new comment at top
+
   const [comments, addOptimistic] = useOptimistic(
     initialComments,
     (state, item) => {
@@ -26,16 +32,25 @@ export default function Comments({ initialComments = [], lesson, user }) {
         username={user.user_metadata.full_name}
       />
       <div>
-        {comments.map((commentObj) => (
-          <Comment
-            key={
-              commentObj.commentId ?? commentObj.commentId ?? commentObj.tempId
-            }
-            commentObj={commentObj}
-            user={user}
-            onOptimisticAdd={(c) => addOptimistic(c)}
-          />
-        ))}
+        {comments.map((commentObj) => {
+          const questionUpvotes = allQuestionUpvotes.filter(
+            (upvote) => upvote.commentId === commentObj.commentId
+          );
+
+          return (
+            <Comment
+              initialQuestionUpvotes={questionUpvotes}
+              key={
+                commentObj.commentId ??
+                commentObj.commentId ??
+                commentObj.tempId
+              }
+              commentObj={commentObj}
+              user={user}
+              onOptimisticAdd={(c) => addOptimistic(c)}
+            />
+          );
+        })}
       </div>
     </div>
   );

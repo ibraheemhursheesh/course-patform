@@ -118,18 +118,42 @@ export const updateComment = async ({ commentId, pathname }, formData) => {
 };
 
 
-// export const toggleUpvote = async (formData) => {
-//   console.log("toggleUpvote is called");
-//   const supabase = await createClient();
-//   const {
-//     data: { user },
-//   } = await supabase.auth.getUser();
+export const toggleUpvote = async (toggle, commentId, lectureId, pathname) => {
+  console.log("toggleUpvote is called", toggle);
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-//   const commentId = formData.get("commentId");
-//   const currentPath = formData.get("currentPath");
-
-//   const { data: comment, error } = await supabase
-//     .from("comments")
-//     .select("upvotes")
-//     .eq("commentId", commentId)
-//     .single();
+  if (toggle === true) {
+    const { data, error } = await supabase.from("question_upvotes").insert({
+      commenter: user.id,
+      commentId: commentId,
+      lectureId,
+    });
+    if (error) console.error(error);
+    else {
+      console.log("upvote added");
+      try {
+        revalidatePath(pathname);
+      } catch (e) {
+        console.error("revalidatePath error:", e);
+      }
+    }
+  } else {
+    const { data, error } = await supabase
+      .from("question_upvotes")
+      .delete()
+      .eq("commenter", user.id)
+      .eq("commentId", commentId);
+    if (error) console.error(error);
+    else {
+      console.log("upvote removed");
+      try {
+        revalidatePath(pathname);
+      } catch (e) {
+        console.error("revalidatePath error:", e);
+      }
+    }
+  }
+};

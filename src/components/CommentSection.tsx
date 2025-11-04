@@ -16,19 +16,32 @@ export default async function CommentsSection({ lesson }) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const { data: comments } =
-    (await supabase
+  // Fetch comments and upvotes in parallel
+  const [commentsResponse, upvotesResponse] = await Promise.all([
+    supabase
       .from("comments")
       .select()
       .eq("lectureId", lesson)
-      .order("createdAt", { ascending: false })) ?? [];
+      .order("createdAt", { ascending: false }),
+    supabase.from("question_upvotes").select().eq("lectureId", lesson),
+  ]);
 
-  console.log("comments here =>", comments);
+  const comments = commentsResponse.data ?? [];
+  const allQuestionUpvotes = upvotesResponse.data ?? [];
+
+  console.log("upvotes", allQuestionUpvotes);
 
   return (
     <div className="p-7">
       <h2>Comments</h2>
-      <Comments initialComments={comments} lesson={lesson} user={user} />
+      <Comments
+        // supabase={supabase}
+        // fetchCommentUpvotes={fetchCommentUpvotes}
+        allQuestionUpvotes={allQuestionUpvotes}
+        initialComments={comments}
+        lesson={lesson}
+        user={user}
+      />
     </div>
   );
 }
