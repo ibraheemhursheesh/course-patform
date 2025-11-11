@@ -19,7 +19,7 @@ export default async function Page({ params }) {
       <MuxPlayer
         playbackId="3RFmRP01GolCsOBblYzZOlVHVr8029ae5Vqjkxsdrk92k"
         streamType="on-demand"
-        className="aspect-video h-fit"
+        className="aspect-video "
         accentColor="lightgreen"
         // onEnded={() => console.log("onEnded")}
       />

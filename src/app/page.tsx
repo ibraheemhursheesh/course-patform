@@ -9,10 +9,21 @@ export default async function Home() {
   console.log("data after login", data);
   const user = data?.user?.user_metadata;
 
+  console.log("data", data);
+
   return user ? (
     <>
+      <h1>Learn how to build modern user interfaces for the web</h1>
+      <p>
+        High-quality videos, a private Discord server, and enough reference code
+        to help you make the web what you always dreamed it could be.
+      </p>
+      <h2 className="text-4xl font-bold text-center mt-7">
+        Access Your Courses
+      </h2>
       <CourseList />
-      <p>{user.name}</p>
+      {/* <p>{user.name}</p>
+       */}
       <button onClick={logoutWithGoogle}>Logout</button>
     </>
   ) : (

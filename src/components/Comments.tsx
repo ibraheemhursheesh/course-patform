@@ -7,11 +7,10 @@ import Comment from "./Comment";
 export default function Comments({
   allQuestionUpvotes,
   initialComments = [],
+  allReplies,
   lesson,
   user,
 }) {
-  // reducer: put new comment at top
-
   const [comments, addOptimistic] = useOptimistic(
     initialComments,
     (state, item) => {
@@ -30,21 +29,21 @@ export default function Comments({
         lesson={lesson}
         onOptimisticAdd={(c) => addOptimistic(c)}
         username={user.user_metadata.full_name}
+        userData={user}
       />
       <div>
         {comments.map((commentObj) => {
           const questionUpvotes = allQuestionUpvotes.filter(
             (upvote) => upvote.commentId === commentObj.commentId
           );
-
+          const commentReplies = allReplies.filter(
+            (reply) => reply.replyTo === commentObj.commentId
+          );
           return (
             <Comment
+              commentReplies={commentReplies}
               initialQuestionUpvotes={questionUpvotes}
-              key={
-                commentObj.commentId ??
-                commentObj.commentId ??
-                commentObj.tempId
-              }
+              key={commentObj.commentId}
               commentObj={commentObj}
               user={user}
               onOptimisticAdd={(c) => addOptimistic(c)}

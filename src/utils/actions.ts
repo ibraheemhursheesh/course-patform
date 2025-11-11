@@ -30,23 +30,28 @@ export const logoutWithGoogle = async () => {
   // redirect("/");
 };
 
-export const createComment = async (formData) => {
+export const createComment = async (
+  { lectureId, pathname, type, replyTo, commenterAvatar },
+  formData
+) => {
   console.log("createComment is called");
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const lectureId = formData.get("lectureId");
   const commentContent = formData.get("commentContent");
-  const currentPath = formData.get("currentPath");
-  console.log("currentPath", currentPath);
+
+  console.log("currentPath", pathname);
 
   const { data, error } = await supabase.from("comments").insert({
     commenterId: user.id,
     commenterName: user.user_metadata.full_name,
     comment: commentContent,
     lectureId: lectureId,
+    type,
+    replyTo,
+    commenterAvatar,
   });
 
   if (error) {
@@ -56,7 +61,7 @@ export const createComment = async (formData) => {
 
   // revalidate the page so server components refetch fresh data
   try {
-    revalidatePath(currentPath);
+    revalidatePath(pathname);
   } catch (e) {
     console.error("revalidatePath error:", e);
   }

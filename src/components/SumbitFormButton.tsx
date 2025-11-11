@@ -8,8 +8,8 @@ export default function SumbitFormButton({
 }) {
   const { pending } = useFormStatus();
   return (
-    <Button disabled={pending} type="submit">
-      Update
+    <Button disabled={pending} type="submit" className=" rounded-full">
+      {pending ? "Submitting..." : children}
     </Button>
   );
 }

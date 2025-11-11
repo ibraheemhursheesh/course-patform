@@ -26,15 +26,15 @@ export default function CourseNavigation() {
               <ul className="mt-3">
                 {" "}
                 {section.lectures.map((lecture) => (
-                  <li
-                    key={lecture.title}
-                    className={`text-zinc-800 py-1.5 px-4 hover:bg-zinc-200/80 rounded-sm ${
-                      pathname === "/course-1/" + lecture.id
-                        ? "bg-zinc-200/80"
-                        : ""
-                    }`}
-                  >
-                    <Link href={"/course-1/" + lecture.id}>
+                  <li key={lecture.title}>
+                    <Link
+                      className={`block text-zinc-800 py-1.5 px-4 hover:bg-zinc-200/80 rounded-sm ${
+                        pathname === "/course-1/" + lecture.id
+                          ? "bg-zinc-200/80"
+                          : ""
+                      }`}
+                      href={"/course-1/" + lecture.id}
+                    >
                       <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis">
                         {lecture.title}
                       </h3>

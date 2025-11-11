@@ -5,19 +5,20 @@ import React from "react";
 
 export default function Course({ course }) {
   return (
-    <li
-      className="bg-zinc-100 border border-black max-w-sm mt-10"
-      key={course.id}
-    >
+    <li className="basis-sm rounded-lg overflow-hidden" key={course.id}>
       <Link href={`/${course.slug}`}>
-        <h2>{course.title}</h2>
-        <p>{course.description}</p>
         <Image
           src={"/" + course.image}
           alt={course.title}
+          className="w-full aspect-video rounded-md"
           width={300}
           height={200}
         />
+
+        <div className="p-4">
+          <h2 className="text-2xl font-bold mt-4">{course.title}</h2>
+          <p className="mt-5">{course.description}</p>
+        </div>
       </Link>
     </li>
   );

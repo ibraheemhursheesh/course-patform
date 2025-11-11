@@ -79,7 +79,7 @@ export default function CommentActions({
       </DropdownMenu>
 
       <AlertDialog open={showAlertDialog} onOpenChange={setShowAlertDialog}>
-        <AlertDialogContent>
+        <AlertDialogContent className="rounded-2xl">
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
@@ -88,11 +88,15 @@ export default function CommentActions({
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="rounded-full">
+              Cancel
+            </AlertDialogCancel>
             <form action={deleteComment} onSubmit={handleDelete}>
               <input type="hidden" name="currentPath" value={pathname} />
               <input type="hidden" name="commentId" value={commentId} />
-              <AlertDialogAction type="submit">Continue</AlertDialogAction>
+              <AlertDialogAction type="submit" className="rounded-full">
+                Continue
+              </AlertDialogAction>
             </form>
           </AlertDialogFooter>
         </AlertDialogContent>

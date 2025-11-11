@@ -12,19 +12,22 @@ import { Spinner } from "./ui/spinner";
 export default function CreateCommentForm({
   lesson,
   onOptimisticAdd,
-  username,
+  userData,
 }: {
   lesson: string;
   onOptimisticAdd?: (comment: any) => void;
-  username: string;
+  userData: any;
 }) {
   const pathname = usePathname();
   const formRef = React.useRef<HTMLFormElement>(null);
 
-  // const [state, formAction, isPending] = React.useActionState(
-  //   createComment,
-  //   null
-  // );
+  const bindedCreateComment = createComment.bind(null, {
+    lectureId: lesson,
+    pathname,
+    type: "comment",
+    replyTo: null,
+    commenterAvatar: userData.user_metadata.avatar_url,
+  });
 
   // onSubmit: add optimistic comment then let the form submit to the server action
   const handleSubmit = (e) => {
@@ -33,7 +36,8 @@ export default function CreateCommentForm({
     const optimistic = {
       action: "createComment",
       commentId: `temp-${Date.now()}`,
-      commenterName: username,
+      commenterName: userData.user_metadata.full_name,
+      commenterAvatar: userData.user_metadata.avatar_url,
       comment: content,
       type: "comment",
       replyTo: null,
@@ -48,11 +52,12 @@ export default function CreateCommentForm({
   };
 
   return (
-    <form ref={formRef} action={createComment} onSubmit={handleSubmit}>
-      <input type="hidden" name="currentPath" value={pathname} />
-      <input type="hidden" name="lectureId" value={lesson} />
+    <form ref={formRef} action={bindedCreateComment} onSubmit={handleSubmit}>
       <Textarea name="commentContent" />
-      <Button type="submit" className="ml-auto mt-5 flex items-center gap-3 ">
+      <Button
+        type="submit"
+        className="ml-auto mt-5 flex items-center gap-3 rounded-full "
+      >
         Comment
       </Button>
     </form>

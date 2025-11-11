@@ -6,7 +6,8 @@ import { loginWithGoogle } from "@/utils/actions";
 export default function LoginForm() {
   return (
     <div className="flex h-dvh items-center justify-center flex-col gap-3">
-      <form className="flex flex-col w-100 mx-5 gap-2">
+      <h1 className="text-3xl font-bold">Login to access courses</h1>
+      <form className="flex flex-col w-100 mx-5 mt-5 gap-2">
         <Input className="" type="email" placeholder="Email" />
 
         <Button className="">Send One-time Password</Button>
