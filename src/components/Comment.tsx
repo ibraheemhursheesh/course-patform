@@ -33,20 +33,30 @@ import Image from "next/image";
 // }
 
 export default function Comment({
-  commentReplies = [],
+  initialCommentReplies = [],
   initialQuestionUpvotes,
+  allQuestionUpvotes,
   commentObj,
   user,
   onOptimisticAdd,
+  type,
 }) {
   const [isEditing, setIsEditing] = React.useState(false);
   const [isReplying, setIsReplying] = React.useState(false);
   const [repliesVisible, setRepliesVisible] = React.useState(false);
 
+  const [commentReplies, addOptimisticReplies] = useOptimistic(
+    initialCommentReplies,
+    (state, item) => {
+      return item.action === "deleteComment"
+        ? state.filter((reply) => reply.commentId !== item.commentId)
+        : state;
+    }
+  );
+
   const [questionUpvotes, addOptimistic] = useOptimistic(
     initialQuestionUpvotes,
     (state, item) => {
-      // console.log("optimistic", item);
       return item.action === "addUpvote"
         ? [
             ...state,
@@ -69,6 +79,7 @@ export default function Comment({
 
   console.log("isUserUpvoted => ", isUserUpvoted);
 
+  console.log("commentReplies", commentReplies);
   // const [isClicked, setIsClicked] = React.useState(false);
 
   const pathname = usePathname();
@@ -82,15 +93,18 @@ export default function Comment({
     lectureId,
     commenterAvatar,
   } = commentObj;
+
   const bindedUpdateComment = updateComment.bind(null, {
     commentId,
     pathname,
   });
+
   const bindedCreateComment = createComment.bind(null, {
     lectureId,
     pathname,
     type: "reply",
     replyTo: commentId,
+    commenterAvatar: user.user_metadata.avatar_url,
   });
 
   const handleUpdateSubmit = async (e) => {
@@ -109,6 +123,7 @@ export default function Comment({
     // await the server action so it runs to completion before closing the editor
     await bindedCreateComment(formData);
     setIsReplying(false);
+    setRepliesVisible(true);
   };
 
   const upvoteComment = async (e) => {
@@ -139,7 +154,9 @@ export default function Comment({
   });
 
   return (
-    <li className="mt-5 border-b pb-5 flex gap-5">
+    <li
+      className={`mt-5 ${type === "comment" ? "border-b" : ""} pb-5 flex gap-5`}
+    >
       <Image
         src={commenterAvatar ? commenterAvatar : null}
         alt={commenterName}
@@ -184,17 +201,19 @@ export default function Comment({
                 variant="outline"
               >
                 <Heart fill={isUserUpvoted ? "black" : "none"} />
-                {/* <ArrowBigUp /> */}
+
                 {questionUpvotes.length}
               </Button>
-              <Button
-                onClick={handleReply}
-                className="min-w-[75px] text-center shrink-0 rounded-full"
-                variant="outline"
-              >
-                <MessageSquareText />
-                Reply
-              </Button>
+              {type === "comment" && (
+                <Button
+                  onClick={handleReply}
+                  className="min-w-[75px] text-center shrink-0 rounded-full"
+                  variant="outline"
+                >
+                  <MessageSquareText />
+                  Reply
+                </Button>
+              )}
             </div>
           </div>
         )}
@@ -227,12 +246,28 @@ export default function Comment({
               {commentReplies.length === 1 ? "y" : "ies"}
             </Button>
             {repliesVisible && (
-              <ul className="mt-5 border-l pl-5">
-                {commentReplies.map((reply, index) => (
-                  <div key={index}>
-                    reply to {reply.commenterName}: {reply.comment}
-                  </div>
-                ))}
+              <ul
+                // style={{ interpolateSize: "allow-keywords" }}
+                // className="mt-5 pl-5 starting:h-0 h-auto duration-500 ease-out overflow-y-hidden bg-zinc-300"
+                className="mt-5 pl-5"
+              >
+                {commentReplies.map((reply, index) => {
+                  const questionUpvotes = allQuestionUpvotes.filter(
+                    (upvote) => upvote.commentId === reply.commentId
+                  );
+                  return (
+                    <Comment
+                      key={index}
+                      initialCommentReplies={[]}
+                      initialQuestionUpvotes={questionUpvotes}
+                      allQuestionUpvotes={[]}
+                      commentObj={reply}
+                      user={user}
+                      onOptimisticAdd={(c) => addOptimisticReplies(c)}
+                      type={reply.type}
+                    />
+                  );
+                })}
               </ul>
             )}
           </>

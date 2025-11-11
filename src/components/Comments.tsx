@@ -28,7 +28,6 @@ export default function Comments({
       <CreateCommentForm
         lesson={lesson}
         onOptimisticAdd={(c) => addOptimistic(c)}
-        username={user.user_metadata.full_name}
         userData={user}
       />
       <div>
@@ -41,12 +40,14 @@ export default function Comments({
           );
           return (
             <Comment
-              commentReplies={commentReplies}
+              initialCommentReplies={commentReplies}
               initialQuestionUpvotes={questionUpvotes}
+              allQuestionUpvotes={allQuestionUpvotes}
               key={commentObj.commentId}
               commentObj={commentObj}
               user={user}
               onOptimisticAdd={(c) => addOptimistic(c)}
+              type={commentObj.type}
             />
           );
         })}
