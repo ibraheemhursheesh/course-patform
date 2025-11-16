@@ -1,4 +1,4 @@
-export const course = [
+export const courseOne = [
   {
     sectionTitle: "Introduction to React",
     lectures: [

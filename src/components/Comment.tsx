@@ -70,17 +70,16 @@ export default function Comment({
     }
   );
 
-  const isUserUpvoted = useMemo(
+  const isUpvotedByUser = useMemo(
     function () {
       return questionUpvotes.some((upvote) => upvote.commenter === user.id);
     },
     [questionUpvotes, user.id]
   );
 
-  console.log("isUserUpvoted => ", isUserUpvoted);
+  console.log("isUpvotedByUser =>", isUpvotedByUser);
 
   console.log("commentReplies", commentReplies);
-  // const [isClicked, setIsClicked] = React.useState(false);
 
   const pathname = usePathname();
   console.log("commentObj", commentObj);
@@ -133,13 +132,13 @@ export default function Comment({
       commenter: user.id,
       commentId: commentId,
       lectureId: lectureId,
-      action: isUserUpvoted ? "removeUpvote" : "addUpvote",
+      action: isUpvotedByUser ? "removeUpvote" : "addUpvote",
     };
     startTransition(() => {
       addOptimistic(optimistic);
     });
 
-    await toggleUpvote(!isUserUpvoted, commentId, lectureId, pathname);
+    await toggleUpvote(!isUpvotedByUser, commentId, lectureId, pathname);
   };
 
   const handleReply = (e) => {
@@ -154,135 +153,146 @@ export default function Comment({
   });
 
   return (
-    <li
-      className={`mt-5 ${type === "comment" ? "border-b" : ""} pb-5 flex gap-5`}
-    >
-      <Image
-        src={commenterAvatar ? commenterAvatar : null}
-        alt={commenterName}
-        width={40}
-        height={40}
-        className="rounded-full self-start"
-      />
-      <div className="grow">
-        <div className="flex gap-2 text-sm">
-          <p className="font-bold">{commenterName}</p>
-          <p className="text-zinc-700">{date}</p>
-        </div>
-        {isEditing ? (
-          <form onSubmit={handleUpdateSubmit}>
-            <input type="hidden" name="currentPath" value={pathname} />
-            <input type="hidden" name="commentId" value={commentId} />
-            <Textarea
-              name="updatedComment"
-              className="w-full"
-              defaultValue={comment}
-            />
-            <div className="flex gap-3 items-center mt-3 ">
-              <Button
-                type="button"
-                variant="outline"
-                className="ml-auto rounded-full"
-                onClick={() => setIsEditing(false)}
-              >
-                {" "}
-                Cancel
-              </Button>{" "}
-              <SubmitFormButton>Update</SubmitFormButton>
+    <li className={` ${type === "comment" ? "mt-7" : "mt-5"} flex flex-col   `}>
+      <div className="flex gap-5">
+        {" "}
+        <Image
+          src={commenterAvatar ? commenterAvatar : null}
+          alt={commenterName}
+          width={40}
+          height={40}
+          className="rounded-full self-start"
+        />
+        <div className="grow flex gap-5 bg-white p-5 rounded-md border bg-linear-to-r from-white to-zinc-300/10">
+          <div className="grow">
+            {" "}
+            <div className="flex gap-2 text-sm">
+              <p className="font-bold">{commenterName}</p>
+              <p className="text-zinc-700">{date}</p>
             </div>
-          </form>
-        ) : (
-          <div>
-            <p className="mt-2">{comment}</p>
-            <div className="flex items-center gap-3 mt-3">
-              <Button
-                onClick={upvoteComment}
-                className={`min-w-[75px] text-center shrink-0 rounded-full`}
-                variant="outline"
-              >
-                <Heart fill={isUserUpvoted ? "black" : "none"} />
+            {isEditing ? (
+              <form className="mt-2" onSubmit={handleUpdateSubmit}>
+                <input type="hidden" name="currentPath" value={pathname} />
+                <input type="hidden" name="commentId" value={commentId} />
+                <Textarea
+                  name="updatedComment"
+                  className="w-full min-h-30 max-h-30 bg-white"
+                  defaultValue={comment}
+                />
+                <div className="flex gap-3 items-center mt-3 ">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="ml-auto rounded-full"
+                    onClick={() => setIsEditing(false)}
+                  >
+                    {" "}
+                    Cancel
+                  </Button>{" "}
+                  <SubmitFormButton>Update</SubmitFormButton>
+                </div>
+              </form>
+            ) : (
+              <div>
+                <p className="mt-2">
+                  {/* {comment.length > 350
+                    ? comment.slice(0, 350) + "..."
+                    : comment} */}
+                  {comment}
+                </p>
+                <div className="flex items-center gap-3 mt-3 flex-wrap">
+                  <Button
+                    onClick={upvoteComment}
+                    className={`min-w-[75px] text-center shrink-0 rounded-full`}
+                    variant="outline"
+                  >
+                    <Heart fill={isUpvotedByUser ? "black" : "none"} />
 
-                {questionUpvotes.length}
-              </Button>
-              {type === "comment" && (
-                <Button
-                  onClick={handleReply}
-                  className="min-w-[75px] text-center shrink-0 rounded-full"
-                  variant="outline"
-                >
-                  <MessageSquareText />
-                  Reply
-                </Button>
-              )}
-            </div>
-          </div>
-        )}
-        {isReplying && (
-          <form onSubmit={handleReplySubmit}>
-            <Textarea name="commentContent" className="mt-5" />
-
-            <div className="flex gap-3 items-center mt-3">
-              <Button
-                onClick={() => setIsReplying(false)}
-                type="button"
-                variant="outline"
-                className="ml-auto  rounded-full"
-              >
-                Cancel
-              </Button>
-              <SubmitFormButton>Continue</SubmitFormButton>
-            </div>
-          </form>
-        )}
-
-        {commentReplies.length > 0 && (
-          <>
-            <Button
-              variant="link"
-              className="font-bold mt-3"
-              onClick={() => setRepliesVisible(!repliesVisible)}
-            >
-              {repliesVisible ? "Hide" : "View"} {commentReplies.length} repl
-              {commentReplies.length === 1 ? "y" : "ies"}
-            </Button>
-            {repliesVisible && (
-              <ul
-                // style={{ interpolateSize: "allow-keywords" }}
-                // className="mt-5 pl-5 starting:h-0 h-auto duration-500 ease-out overflow-y-hidden bg-zinc-300"
-                className="mt-5 pl-5"
-              >
-                {commentReplies.map((reply, index) => {
-                  const questionUpvotes = allQuestionUpvotes.filter(
-                    (upvote) => upvote.commentId === reply.commentId
-                  );
-                  return (
-                    <Comment
-                      key={index}
-                      initialCommentReplies={[]}
-                      initialQuestionUpvotes={questionUpvotes}
-                      allQuestionUpvotes={[]}
-                      commentObj={reply}
-                      user={user}
-                      onOptimisticAdd={(c) => addOptimisticReplies(c)}
-                      type={reply.type}
-                    />
-                  );
-                })}
-              </ul>
+                    {questionUpvotes.length}
+                  </Button>
+                  {type === "comment" && (
+                    <Button
+                      onClick={handleReply}
+                      className="min-w-[75px] text-center shrink-0 rounded-full"
+                      variant="outline"
+                    >
+                      <MessageSquareText />
+                      Reply
+                    </Button>
+                  )}
+                  {commentReplies.length > 0 && (
+                    <Button
+                      className="min-w-[75px] text-center shrink-0 rounded-full"
+                      variant="outline"
+                      onClick={() => setRepliesVisible(!repliesVisible)}
+                    >
+                      {repliesVisible ? "Hide" : "View"} {commentReplies.length}{" "}
+                      repl
+                      {commentReplies.length === 1 ? "y" : "ies"}
+                    </Button>
+                  )}
+                </div>
+              </div>
             )}
-          </>
-        )}
+            {isReplying && (
+              <form onSubmit={handleReplySubmit}>
+                <Textarea
+                  className="min-h-30 max-h-30 mt-5 bg-white"
+                  name="commentContent"
+                />
+
+                <div className="flex gap-3 items-center mt-3">
+                  <Button
+                    onClick={() => setIsReplying(false)}
+                    type="button"
+                    variant="outline"
+                    className="ml-auto  rounded-full"
+                  >
+                    Cancel
+                  </Button>
+                  <SubmitFormButton>Continue</SubmitFormButton>
+                </div>
+              </form>
+            )}
+          </div>
+
+          {user.id === commenterId && (
+            <CommentActions
+              commentId={commentId}
+              setIsEditing={setIsEditing}
+              setIsReplying={setIsReplying}
+              pathname={pathname}
+              onOptimisticAdd={onOptimisticAdd}
+            />
+          )}
+        </div>
       </div>
-      <div>
-        {user.id === commenterId && (
-          <CommentActions
-            commentId={commentId}
-            setIsEditing={setIsEditing}
-            pathname={pathname}
-            onOptimisticAdd={onOptimisticAdd}
-          />
-        )}
-      </div>
+
+      {repliesVisible && (
+        <ul
+          // style={{ interpolateSize: "allow-keywords" }}
+          // className="mt-5 pl-5 starting:h-0 h-auto duration-500 ease-out overflow-y-hidden bg-zinc-300"
+          className=" ml-15"
+        >
+          {commentReplies.map((reply, index) => {
+            const questionUpvotes = allQuestionUpvotes.filter(
+              (upvote) => upvote.commentId === reply.commentId
+            );
+            return (
+              <Comment
+                key={index}
+                initialCommentReplies={[]}
+                initialQuestionUpvotes={questionUpvotes}
+                allQuestionUpvotes={[]}
+                commentObj={reply}
+                user={user}
+                onOptimisticAdd={(c) => addOptimisticReplies(c)}
+                type={reply.type}
+              />
+            );
+          })}
+        </ul>
+      )}
     </li>
   );
 }

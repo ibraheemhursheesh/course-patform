@@ -37,11 +37,13 @@ import { usePathname } from "next/navigation";
 export default function CommentActions({
   commentId,
   setIsEditing,
+  setIsReplying,
   pathname,
   onOptimisticAdd,
 }: {
   commentId: string;
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsReplying: React.Dispatch<React.SetStateAction<boolean>>;
   pathname: string;
   onOptimisticAdd: (comment: any) => void;
 }) {
@@ -61,14 +63,19 @@ export default function CommentActions({
     <>
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" aria-label="Open menu" size="icon-sm">
+          <Button variant="ghost" aria-label="Open menu" size="icon-sm">
             <EllipsisVertical />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40" align="end">
           <DropdownMenuLabel>Comment Actions</DropdownMenuLabel>
           <DropdownMenuGroup>
-            <DropdownMenuItem onSelect={() => setIsEditing(true)}>
+            <DropdownMenuItem
+              onSelect={() => {
+                setIsEditing(true);
+                setIsReplying(false);
+              }}
+            >
               Edit
             </DropdownMenuItem>
             <DropdownMenuItem onSelect={() => setShowAlertDialog(true)}>

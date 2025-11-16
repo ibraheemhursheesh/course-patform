@@ -37,7 +37,12 @@ export default async function CommentsSection({ lesson }) {
 
   return (
     <div className="p-7">
-      <h2>Comments</h2>
+      <h2 className="mb-5">
+        <p className="text-2xl font-bold">
+          Have a question about this lecture?
+        </p>
+        <p className="mt-1"> Leave it below and let other folks answer it.</p>
+      </h2>
       <Comments
         allQuestionUpvotes={allQuestionUpvotes}
         initialComments={comments}

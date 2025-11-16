@@ -3,7 +3,10 @@ import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
-    <footer className="my-10 pt-15 pb-5 flex justify-between items-end px-10 border-t border-black">
+    <footer
+      // id="in"
+      className=" pt-15 pb-5 flex justify-between items-end px-10 border-t border-black"
+    >
       <div className="w-sm">
         <p className="font-bold text-xl">Join our newsletter for updates!</p>
         <p className="mt-3">
@@ -13,7 +16,9 @@ export default function Footer() {
         <form action="">
           <div className="flex gap-2 mt-4">
             <Input type="email" />
-            <Button variant="outline">Sign up</Button>
+            <Button variant="outline" type="button">
+              Sign up
+            </Button>
           </div>
         </form>
       </div>

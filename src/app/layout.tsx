@@ -6,6 +6,8 @@ import { GeistMono } from "geist/font/mono";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+// import "./mux-player.css";
+
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],

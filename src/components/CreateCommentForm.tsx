@@ -53,7 +53,11 @@ export default function CreateCommentForm({
 
   return (
     <form ref={formRef} action={bindedCreateComment} onSubmit={handleSubmit}>
-      <Textarea name="commentContent" />
+      <Textarea
+        placeholder="Write your question.."
+        className="min-h-35 max-h-50 bg-white"
+        name="commentContent"
+      />
       <Button
         type="submit"
         className="ml-auto mt-5 flex items-center gap-3 rounded-full "

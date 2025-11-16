@@ -1,19 +1,34 @@
 // @ts-nocheck
 "use client";
 import React, { useState } from "react";
-import { course } from "@/data/course1";
+import { courseOne as course } from "@/data/course1";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { TableOfContents } from "lucide-react";
 
-export default function CourseNavigation() {
+export default function CourseNavigation({
+  isPlacedDownVideo,
+}: {
+  isPlacedDownVideo?: boolean;
+}) {
   const pathname = usePathname();
+
+  // use resize listener here.
 
   return (
     <nav
-      className="basis-sm shrink-0 relative"
+      className={`${
+        isPlacedDownVideo
+          ? "block"
+          : "hidden  border-l border-zinc-200 md:w-[300px] lg:w-[400px]"
+      } md:block  bg-white relative shrink-0`}
       style={{ overflowAnchor: "none" }}
     >
-      <div className="h-dvh  py-4 px-6 overflow-y-auto sticky top-0 w-full">
+      <div
+        className={`${
+          isPlacedDownVideo ? "" : "h-dvh sticky top-0"
+        } py-4 px-6 overflow-y-auto w-full`}
+      >
         {" "}
         <ul>
           {course.map((section, index) => (
@@ -23,19 +38,33 @@ export default function CourseNavigation() {
                 <p>{section.sectionTitle}</p>
               </h2>
 
-              <ul className="mt-3">
+              <ul
+                className={`mt-3 ${
+                  isPlacedDownVideo ? "p-5 bg-zinc-950 rounded-md" : ""
+                }`}
+              >
                 {" "}
                 {section.lectures.map((lecture) => (
                   <li key={lecture.title}>
                     <Link
-                      className={`block text-zinc-800 py-1.5 px-4 hover:bg-zinc-200/80 rounded-sm ${
+                      className={`block ${
+                        isPlacedDownVideo
+                          ? "text-white hover:bg-zinc-800"
+                          : "text-zinc-800 hover:bg-zinc-200/80"
+                      } py-1.5 px-4  rounded-sm ${
                         pathname === "/course-1/" + lecture.id
-                          ? "bg-zinc-200/80"
+                          ? isPlacedDownVideo
+                            ? "bg-zinc-800"
+                            : "bg-zinc-200/80"
                           : ""
                       }`}
-                      href={"/course-1/" + lecture.id}
+                      href={lecture.id}
                     >
                       <h3 className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+                        {/* <div className="whitespace-nowrap overflow-hidden overflow-ellipsis ">
+                            {lecture.title}
+                          </div>
+                          <div>{lecture.duration}</div> */}
                         {lecture.title}
                       </h3>
                     </Link>
