@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { course } from "@/data/course1";
+import { courseOne as course } from "@/data/course1";
 
 export default function page() {
   return (
