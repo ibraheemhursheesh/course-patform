@@ -10,7 +10,7 @@ export const loginWithGoogle = async () => {
   const supabase = await createClient();
 
   // console.log(supabase);
-  const auth_callback_url = "http://localhost:3000/auth/callback";
+  const auth_callback_url = `${process.env.APP_URL}/auth/callback`;
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
