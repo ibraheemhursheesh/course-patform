@@ -77,12 +77,12 @@ export default function Comment({
     [questionUpvotes, user.id]
   );
 
-  console.log("isUpvotedByUser =>", isUpvotedByUser);
+  // console.log("isUpvotedByUser =>", isUpvotedByUser);
 
-  console.log("commentReplies", commentReplies);
+  // console.log("commentReplies", commentReplies);
 
   const pathname = usePathname();
-  console.log("commentObj", commentObj);
+  // console.log("commentObj", commentObj);
   const {
     commentId,
     commenterName,
@@ -126,7 +126,7 @@ export default function Comment({
   };
 
   const upvoteComment = async (e) => {
-    // console.log("upvoteComment is called");
+    // // console.log("upvoteComment is called");
 
     const optimistic = {
       commenter: user.id,
@@ -142,7 +142,7 @@ export default function Comment({
   };
 
   const handleReply = (e) => {
-    console.log("Reply clicked");
+    // console.log("Reply clicked");
     setIsReplying((isReplying) => !isReplying);
   };
 

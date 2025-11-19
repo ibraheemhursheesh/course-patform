@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { Clock } from "lucide-react";
 
 export default function Course({ course }) {
-  console.log(course.style);
+  // console.log(course.style);
   return (
     <li
       className="relative rounded-xl bg-cover border border-zinc-300 overflow-hidden text-white"

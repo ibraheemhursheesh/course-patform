@@ -16,7 +16,7 @@ export default function VideoTabs({
 }) {
   const [isMobile, setIsMobile] = React.useState(false);
   const handleResize = (e) => {
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
 
     if (window.innerWidth >= 960) setIsMobile(false);
     else setIsMobile(true);

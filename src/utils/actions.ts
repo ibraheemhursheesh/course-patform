@@ -9,7 +9,7 @@ import { createClient } from "./server";
 export const loginWithGoogle = async () => {
   const supabase = await createClient();
 
-  // console.log(supabase);
+  // // console.log(supabase);
   const auth_callback_url = `${process.env.APP_URL}/auth/callback`;
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
@@ -18,7 +18,7 @@ export const loginWithGoogle = async () => {
     },
   });
 
-  console.log("data from login", data);
+  // console.log("data from login", data);
 
   redirect(data.url);
 };
@@ -27,14 +27,14 @@ export const logoutWithGoogle = async () => {
   const supabase = await createClient();
   const { error } = await supabase.auth.signOut();
 
-  // redirect("/");
+  redirect("/");
 };
 
 export const createComment = async (
   { lectureId, pathname, type, replyTo, commenterAvatar },
   formData
 ) => {
-  console.log("createComment is called");
+  // console.log("createComment is called");
   const supabase = await createClient();
   const {
     data: { user },
@@ -42,7 +42,7 @@ export const createComment = async (
 
   const commentContent = formData.get("commentContent");
 
-  console.log("currentPath", pathname);
+  // console.log("currentPath", pathname);
 
   const { data, error } = await supabase.from("comments").insert({
     commenterId: user.id,
@@ -68,8 +68,8 @@ export const createComment = async (
 };
 
 export const deleteComment = async (formData) => {
-  console.log("delete Comment");
-  console.log(formData.get("commentId"));
+  // console.log("delete Comment");
+  // console.log(formData.get("commentId"));
   const supabase = await createClient();
   const {
     data: { user },
@@ -77,7 +77,7 @@ export const deleteComment = async (formData) => {
 
   const currentPath = formData.get("currentPath");
 
-  // console.log(user);
+  // // console.log(user);
 
   const { error } = await supabase
     .from("comments")
@@ -86,7 +86,7 @@ export const deleteComment = async (formData) => {
     .eq("commenterId", user.id);
   if (error) console.error(error);
   else {
-    console.log("Comment deleted");
+    // console.log("Comment deleted");
     try {
       revalidatePath(currentPath);
     } catch (e) {
@@ -96,8 +96,8 @@ export const deleteComment = async (formData) => {
 };
 
 export const updateComment = async ({ commentId, pathname }, formData) => {
-  console.log("update Comment");
-  // console.log(formData.get("updatedComment"));
+  // console.log("update Comment");
+  // // console.log(formData.get("updatedComment"));
   const supabase = await createClient();
   const {
     data: { user },
@@ -113,7 +113,7 @@ export const updateComment = async ({ commentId, pathname }, formData) => {
 
   if (error) console.error(error);
   else {
-    console.log("Comment updated:", data);
+    // console.log("Comment updated:", data);
     try {
       revalidatePath(pathname);
     } catch (e) {
@@ -122,9 +122,8 @@ export const updateComment = async ({ commentId, pathname }, formData) => {
   }
 };
 
-
 export const toggleUpvote = async (toggle, commentId, lectureId, pathname) => {
-  console.log("toggleUpvote is called", toggle);
+  // console.log("toggleUpvote is called", toggle);
   const supabase = await createClient();
   const {
     data: { user },
@@ -138,7 +137,7 @@ export const toggleUpvote = async (toggle, commentId, lectureId, pathname) => {
     });
     if (error) console.error(error);
     else {
-      console.log("upvote added");
+      // console.log("upvote added");
       try {
         revalidatePath(pathname);
       } catch (e) {
@@ -153,7 +152,7 @@ export const toggleUpvote = async (toggle, commentId, lectureId, pathname) => {
       .eq("commentId", commentId);
     if (error) console.error(error);
     else {
-      console.log("upvote removed");
+      // console.log("upvote removed");
       try {
         revalidatePath(pathname);
       } catch (e) {

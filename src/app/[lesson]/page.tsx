@@ -13,7 +13,7 @@ import VideoTabs from "@/components/VideoTabs";
 
 export default async function Page({ params }) {
   const { lesson } = await params;
-  // console.log("lesson param =>", lesson);
+  // // console.log("lesson param =>", lesson);
 
   let lectureTitle = "";
   for (let i = 0; i < courseOne.length; i++) {
@@ -26,7 +26,7 @@ export default async function Page({ params }) {
       }
     }
   }
-  // console.log("lectureTitle =>", lectureTitle);
+  // // console.log("lectureTitle =>", lectureTitle);
 
   return (
     <div className="w-full">
@@ -35,7 +35,7 @@ export default async function Page({ params }) {
         streamType="on-demand"
         className="aspect-video block"
         accentColor="white"
-        // onEnded={() => console.log("onEnded")}
+        // onEnded={() => // console.log("onEnded")}
       />
 
       <div className="" id="in">

@@ -8,10 +8,10 @@ import "./mux-player.css";
 export default async function Home() {
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
-  console.log("data after login", data);
+  // console.log("data after login", data);
   const user = data?.user?.user_metadata;
 
-  console.log("data", data);
+  // console.log("data", data);
 
   return user ? (
     <div className=" pt-10 pb-25" id="in">
