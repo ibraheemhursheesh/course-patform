@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createClient } from "@/utils/server";
+import { createClient } from "@/lib/supabase/server";
 
 import { Suspense } from "react";
 

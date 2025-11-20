@@ -2,7 +2,7 @@
 "use server";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { createClient } from "./server";
+import { createClient } from "@/lib/supabase/server";
 import { headers } from "next/headers";
 
 // const supabase = createClient();
@@ -10,7 +10,9 @@ import { headers } from "next/headers";
 export const loginWithGoogle = async () => {
   const supabase = await createClient();
 
-  const origin = headers().get("origin");
+  const awaitedHeaders = await headers();
+
+  const origin = awaitedHeaders.get("origin");
 
   // // console.log(supabase);
   const auth_callback_url = `${origin}/auth/callback`;

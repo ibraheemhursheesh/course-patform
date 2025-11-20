@@ -1,7 +1,7 @@
 // @ts-nocheck
 "use client";
 
-import supabase from "@/utils/client";
+import supabase from "@/lib/supabase/client";
 
 import React, { startTransition, useMemo, useOptimistic } from "react";
 

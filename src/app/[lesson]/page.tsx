@@ -2,7 +2,7 @@
 
 import MuxPlayer from "@mux/mux-player-react";
 
-import { createClient } from "@/utils/server";
+import { createClient } from "@/lib/supabase/server";
 import { courseOne } from "@/data/course1";
 
 import CommentsSection from "@/components/CommentSection";
