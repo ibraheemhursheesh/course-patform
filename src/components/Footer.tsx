@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer
       // id="in"
-      className=" pt-15 pb-5 flex justify-between items-end px-10 border-t border-black"
+      className=" pt-15 pb-20  flex justify-between items-end px-10 border-t border-black"
     >
       <div className="w-sm">
         <p className="font-bold text-xl">Join our newsletter for updates!</p>

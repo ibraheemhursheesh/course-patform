@@ -32,11 +32,12 @@ export default async function CommentsSection({ lesson }) {
     ]);
 
   const comments = commentsResponse.data ?? [];
+  console.log("comments", comments);
   const allQuestionUpvotes = upvotesResponse.data ?? [];
   const allReplies = repliesResponse.data ?? [];
 
   return (
-    <div className="p-7">
+    <div className="p-7 pb-20">
       <h2 className="mb-5">
         <p className="text-2xl font-bold">
           Have a question about this lecture?

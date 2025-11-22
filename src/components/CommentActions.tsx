@@ -68,7 +68,6 @@ export default function CommentActions({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40" align="end">
-          <DropdownMenuLabel>Comment Actions</DropdownMenuLabel>
           <DropdownMenuGroup>
             <DropdownMenuItem
               onSelect={() => {

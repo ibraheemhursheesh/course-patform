@@ -37,19 +37,21 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANT: Don't remove getClaims()
 
-  const { data } = await supabase.auth.getClaims();
+    const { data } = await supabase.auth.getUser();
+    // console.log("data after login", data);
+    const user = data?.user;
 
-  const user = data?.claims;
-  if (
-    !user &&
-    request.nextUrl.pathname !== "/" &&
-    !request.nextUrl.pathname.startsWith("/auth")
-  ) {
-    // no user, potentially respond by redirecting the user to the login page
-    const url = request.nextUrl.clone();
-    url.pathname = "/";
-    return NextResponse.redirect(url);
-  }
+    if (
+      !user &&
+      request.nextUrl.pathname !== "/" &&
+      !request.nextUrl.pathname.startsWith("/auth") &&
+      !request.nextUrl.pathname.startsWith("/confirm-password")
+    ) {
+      // no user, potentially respond by redirecting the user to the login page
+      const url = request.nextUrl.clone();
+      url.pathname = "/";
+      return NextResponse.redirect(url);
+    }
   // ...existing code...
   return supabaseResponse;
 }

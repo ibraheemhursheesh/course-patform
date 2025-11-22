@@ -9,7 +9,7 @@ export default function Course({ course }) {
   // console.log(course.style);
   return (
     <li
-      className="relative rounded-xl bg-cover border border-zinc-300 overflow-hidden text-white"
+      className="relative rounded-3xl bg-cover border border-zinc-300 overflow-hidden text-white"
       style={{ backgroundImage: `url(/${course.image}) ` }}
       key={course.id}
     >
@@ -30,7 +30,7 @@ export default function Course({ course }) {
           <div className="flex gap-3">
             <Image
               alt="Instructor Avatar"
-              className="rounded-full shrink-0"
+              className="rounded-full shrink-0 size-12.5"
               src="/avatar.png"
               width={50}
               height={50}

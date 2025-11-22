@@ -34,22 +34,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${GeistSans.className} antialiased`}>
-        {user ? (
-          <>
-            {" "}
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </>
-        ) : (
-          <LoginForm />
-        )}
-        {/* <>
-          {" "}
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </> */}
+        {user && <Header />}
+        <main>{children}</main>
+        {user && <Footer />}
       </body>
     </html>
   );

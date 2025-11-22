@@ -16,10 +16,23 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
+import Image from "next/image";
 export default function Header() {
   return (
     <header className="flex justify-between py-4 px-10 items-center border-b">
-      <Link href="/">Unpacked</Link>
+      <div className="flex gap-5">
+        {/* <Image
+          alt="log"
+          src="/box.png"
+          width={50}
+          height={50}
+          className="size-10"
+        /> */}
+        <Link href="/" className="flex uppercase font-bold ">
+          <div className="">Un</div>
+          <div className="text-lg">packed</div>
+        </Link>
+      </div>
       <nav>
         <ul className="flex gap-7 items-center">
           <li>

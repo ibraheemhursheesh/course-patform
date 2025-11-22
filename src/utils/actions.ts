@@ -7,6 +7,48 @@ import { headers } from "next/headers";
 
 // const supabase = createClient();
 
+export const loginWithOTP = async (formData) => {
+  const supabase = await createClient();
+
+  const awaitedHeaders = await headers();
+  const origin = awaitedHeaders.get("origin");
+
+  const email = formData.get("email");
+  const { data, error } = await supabase.auth.signInWithOtp({
+    email,
+    options: {
+      // set this to false if you do not want the user to be automatically signed up
+      // shouldCreateUser: false,
+    },
+  });
+
+  if (error) {
+    console.error("Error sending OTP:", error.message);
+    return error.message;
+  }
+  return "ok";
+  // redirect(`${origin}/confirm-password`);
+};
+
+export const verifyOneTimePassword = async (email, token) => {
+  const supabase = await createClient();
+  const {
+    data: { session },
+    error,
+  } = await supabase.auth.verifyOtp({
+    email,
+    token,
+    type: "email",
+  });
+
+  if (error) {
+    console.error("error verifying OTP", error.message);
+    return error.message;
+  }
+
+  return "ok";
+};
+
 export const loginWithGoogle = async () => {
   const supabase = await createClient();
 
@@ -23,11 +65,7 @@ export const loginWithGoogle = async () => {
     },
   });
 
-  // console.log("data from login", data);
-
-  console.log(data.url);
-
-  redirect(data.url);
+  if (data?.url) redirect(data.url);
 };
 
 export const logoutWithGoogle = async () => {

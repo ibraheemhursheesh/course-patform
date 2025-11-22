@@ -152,18 +152,25 @@ export default function Comment({
     day: "numeric",
   });
 
+  console.log("commenterAvatar", commenterAvatar);
+
   return (
     <li className={` ${type === "comment" ? "mt-7" : "mt-5"} flex flex-col   `}>
       <div className="flex gap-5">
         {" "}
-        <Image
-          src={commenterAvatar ? commenterAvatar : null}
-          alt={commenterName}
-          width={40}
-          height={40}
-          className="rounded-full self-start"
-        />
-        <div className="grow flex gap-5 bg-white p-5 rounded-md border bg-linear-to-r from-white to-zinc-300/10">
+        {commenterAvatar ? (
+          <Image
+            src={commenterAvatar}
+            alt={commenterName}
+            width={40}
+            height={40}
+            className="rounded-full self-start"
+          />
+        ) : (
+          <div className="size-10 bg-black rounded-full self-start"></div>
+        )}
+        {/* <div className="bg-white"> */}
+        <div className="grow flex gap-5 bg-[#fbfbfb] p-5 rounded-md border ">
           <div className="grow">
             {" "}
             <div className="flex gap-2 text-sm">
@@ -266,6 +273,7 @@ export default function Comment({
             />
           )}
         </div>
+        {/* </div> */}
       </div>
 
       {repliesVisible && (
