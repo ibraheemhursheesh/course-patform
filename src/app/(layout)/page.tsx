@@ -3,7 +3,7 @@ import LoginForm from "@/components/LoginForm";
 import { createClient } from "@/lib/supabase/server";
 import CourseList from "@/components/CourseList";
 
-import "./mux-player.css";
+import "@/app/mux-player.css";
 import BackgroundGradientLayer from "@/components/BackgroundGradientLayer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -14,20 +14,13 @@ export default async function Home() {
   // console.log("data after login", data);
   const user = data?.user?.user_metadata;
 
-  // console.log("data", data);
-  // return (
-  //   <div className=" pt-10 pb-25" in="ind">
-  //     <h1 className="text-4xl font-bold text-center">Access Your Courses</h1>
-  //     <CourseList />
-  //   </div>
-  // );
   return user ? (
     <div className=" pt-10 pb-25" in="ind">
-      <h1 className="text-4xl font-bold text-center">Access Your Courses</h1>
-      <CourseList />
+      {/* <h1 className="text-4xl font-bold text-center">Access Your Courses</h1>
+      <CourseList /> */}
+      You're logged in now.
     </div>
   ) : (
-    // <LoginForm />
     <LandingPage />
   );
 }
@@ -77,8 +70,13 @@ function LandingPage() {
                   teaching style.
                 </p>
               </div>
-              <div className="-order-1 mx-auto my-10 flex max-w-[250px] justify-center sm:order-1 sm:my-0 sm:w-1/3 sm:flex-shrink-0 sm:items-start md:max-w-none lg:my-12 lg:hidden">
-                <Image src="/avatar2.png" width="175" height="175" />
+              <div className="-order-1 mx-auto my-10 flex max-w-[250px] justify-center sm:order-1 sm:my-0 sm:w-1/3 sm:shrink-0 sm:items-start md:max-w-none lg:my-12 lg:hidden">
+                <Image
+                  alt="avatar"
+                  src="/avatar2.png"
+                  width="175"
+                  height="175"
+                />
               </div>
             </div>
           </div>

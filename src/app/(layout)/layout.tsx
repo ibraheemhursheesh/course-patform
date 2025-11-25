@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import Header from "@/components/Header";
@@ -9,18 +9,6 @@ import Footer from "@/components/Footer";
 import { createClient } from "@/lib/supabase/server";
 import LoginForm from "@/components/LoginForm";
 import BackgroundGradientLayer from "@/components/BackgroundGradientLayer";
-
-// import "./mux-player.css";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 export const metadata = {
   title: "Create Next App",
@@ -33,10 +21,13 @@ export default async function RootLayout({ children }) {
   // console.log("data after login", data);
   const user = data?.user?.user_metadata;
   return (
-    <html lang="en">
-      <body className={`${GeistSans.className} antialiased`}>
-        <div>{children}</div>
-      </body>
-    </html>
+    <>
+      {!user && <BackgroundGradientLayer />}
+      <div className="relative">
+        <Header user={user} />
+        <main>{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 }

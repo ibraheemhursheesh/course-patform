@@ -71,14 +71,19 @@ export default function LoginForm() {
 
   return (
     <>
-      <div className="flex h-dvh items-center justify-center flex-col gap-3">
+      <div className="flex h-dvh items-center justify-center flex-col gap-3 relative">
         <h1 className="text-3xl font-bold">Login to access courses</h1>
         <form
           onSubmit={handleEmailSubmit}
           // action={loginWithOTP}
           className="flex flex-col w-100 mx-5 mt-5 gap-2"
         >
-          <Input className="" type="email" name="email" placeholder="Email" />
+          <Input
+            className="bg-white"
+            type="email"
+            name="email"
+            placeholder="Email"
+          />
           {emailError && (
             <p className="text-red-500 text-sm mt-1 text-center">
               {emailError}

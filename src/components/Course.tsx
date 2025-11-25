@@ -24,6 +24,7 @@ export default function Course({ course }) {
       key={course.id}
     >
       <Image
+        alt={course.title}
         src={"/" + course.image}
         className="w-full aspect-video object-cover"
         width={626}

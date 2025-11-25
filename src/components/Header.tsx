@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { logoutWithGoogle } from "@/utils/actions";
 import Link from "next/link";
 
@@ -17,9 +18,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 import Image from "next/image";
-export default function Header() {
+export default function Header({ user }) {
   return (
-    <header className="flex justify-between py-4 px-10 items-center ">
+    <header className="max-w-5xl mx-auto flex justify-between py-4 px-10 items-center ">
       <div className="flex gap-5">
         {/* <Image
           alt="log"
@@ -57,7 +58,11 @@ export default function Header() {
           </li>
           <Link href="/contact">Contact</Link>
           <li>
-            <Button onClick={logoutWithGoogle}>Logout</Button>
+            {user ? (
+              <Button onClick={logoutWithGoogle}>Logout</Button>
+            ) : (
+              <Link href="/login">Login</Link>
+            )}
           </li>
         </ul>
       </nav>
