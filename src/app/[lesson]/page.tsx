@@ -38,7 +38,7 @@ export default async function Page({ params }) {
         // onEnded={() => // console.log("onEnded")}
       />
 
-      <div className="" id="in">
+      <div className="" in="ind">
         <VideoTabs lectureTitle={lectureTitle}>
           <CommentsSection lesson={lesson} />
         </VideoTabs>

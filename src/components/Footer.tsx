@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 export default function Footer() {
   return (
     <footer
-      // id="in"
+      // in="ind"
       className=" pt-15 pb-20  flex justify-between items-end px-10 border-t border-black"
     >
       <div className="w-sm">

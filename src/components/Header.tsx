@@ -19,7 +19,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 export default function Header() {
   return (
-    <header className="flex justify-between py-4 px-10 items-center border-b">
+    <header className="flex justify-between py-4 px-10 items-center ">
       <div className="flex gap-5">
         {/* <Image
           alt="log"

@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 
 import { createClient } from "@/lib/supabase/server";
 import LoginForm from "@/components/LoginForm";
+import BackgroundGradientLayer from "@/components/BackgroundGradientLayer";
 
 // import "./mux-player.css";
 
@@ -34,9 +35,14 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${GeistSans.className} antialiased`}>
-        {user && <Header />}
-        <main>{children}</main>
-        {user && <Footer />}
+        <BackgroundGradientLayer />
+        <div className="relative">
+          {/* {user && <Header />} */}
+          <Header />
+          <main>{children}</main>
+          {/* {user && <Footer />} */}
+          <Footer />
+        </div>
       </body>
     </html>
   );

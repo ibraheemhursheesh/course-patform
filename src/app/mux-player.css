@@ -1,11 +1,11 @@
-mux-player::part(bottom rendition menu) {
+/* mux-player::part(bottom rendition menu) { */
   /* background-color: #fff; */
   /* --media-menu-item-hover-background: #333;
   --media-menu-item-hover-outline: none; */
-  border-radius: 6px;
+  /* border-radius: 6px;
   padding: 6px;
-  right: 50px;
-}
+  right: 50px; */
+/* } */
 
 /* mux-player::part(menu-item radio) {
   border-radius: 6px;
