@@ -6,7 +6,9 @@ export default function BackgroundGradientLayer({ login }) {
   return (
     <div
       id="layer"
-      className={"h-[675px] w-full absolute top-[50%] translate-y-[-50%]"}
+      className={`h-full w-full absolute ${
+        login ? "top-[50%] translate-y-[-50%]" : ""
+      }`}
     >
       {login && (
         <div
@@ -35,7 +37,7 @@ export default function BackgroundGradientLayer({ login }) {
             ))}
         </div>
         <div id="horizontal">
-          {Array(15)
+          {Array(100)
             .fill(0)
             .map((_, index) => (
               <div
@@ -46,10 +48,14 @@ export default function BackgroundGradientLayer({ login }) {
             ))}
         </div>
       </div>
-      <div
-        className={`absolute w-full h-30 top-[555px]`}
-        style={{ background: "linear-gradient(0deg, white 50%, transparent)" }}
-      ></div>
+      {login && (
+        <div
+          className={`absolute w-full h-30 top-[555px]`}
+          style={{
+            background: "linear-gradient(0deg, white 50%, transparent)",
+          }}
+        ></div>
+      )}
     </div>
   );
 }

@@ -28,7 +28,7 @@ export default async function Home() {
 function LandingPage() {
   return (
     <div className="px-10">
-      <div className=" ">
+      <div className="">
         <h1 className="text-[3.5rem] leading-18 max-w-3xl mx-auto font-bold text-center pt-28">
           Turning your expertise into revenue just got easier
         </h1>
@@ -41,7 +41,7 @@ function LandingPage() {
         </Button>
       </div>
       <div className="max-w-4xl mx-auto">
-        <section className="mt-25">
+        <section className="mt-25 pt-4.5">
           <h2 className="text-xl font-semibold md:text-2xl">
             Deep dive into foundational topics
           </h2>
@@ -59,7 +59,7 @@ function LandingPage() {
               Meet your instructor
             </h2>
             <div className="flex flex-col sm:mt-8 sm:flex-row lg:mt-0">
-              <div className="max-w-xl sm:pr-8 lg:max-w-[75ch] lg:pr-0">
+              <div className="mt-5 max-w-xl sm:pr-8 lg:max-w-[75ch] lg:pr-0">
                 <p>
                   Hey! We're Sam Selikoff and Ryan Toronto, and together we've
                   been teaching frontend development for over eight years
@@ -70,7 +70,7 @@ function LandingPage() {
                   teaching style.
                 </p>
               </div>
-              <div className="-order-1 mx-auto my-10 flex max-w-[250px] justify-center sm:order-1 sm:my-0 sm:w-1/3 sm:shrink-0 sm:items-start md:max-w-none lg:my-12 lg:hidden">
+              <div className="-order-1 mx-auto my-10 flex max-w-[250px] justify-center sm:order-1 sm:my-0 sm:w-1/3 sm:shrink-0 sm:items-start md:max-w-none lg:my-12">
                 <Image
                   alt="avatar"
                   src="/avatar2.png"
@@ -82,8 +82,8 @@ function LandingPage() {
           </div>
         </section>
         <section className="mx-auto mt-15">
-          <div className="flex gap-12">
-            <div>
+          <div className="flex flex-wrap justify-center gap-12">
+            <div className="w-sm grow">
               {" "}
               <h2 className="text-center text-3xl font-semibold tracking-tight text-black sm:text-left lg:px-2 lg:text-4xl">
                 Lifetime pricing
@@ -100,7 +100,7 @@ function LandingPage() {
                 own terms.
               </p>
             </div>
-            <div className="shrink-0 w-xs px-3">
+            <div className=" w-xs px-3">
               <p className="text-sm font-semibold text-center text-gray-800">
                 Pay once, access forever
               </p>

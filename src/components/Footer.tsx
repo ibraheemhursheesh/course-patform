@@ -15,7 +15,7 @@ export default function Footer() {
         </p>
         <form action="">
           <div className="flex gap-2 mt-4">
-            <Input type="email" />
+            <Input type="email" className="bg-white" />
             <Button variant="outline" type="button">
               Sign up
             </Button>

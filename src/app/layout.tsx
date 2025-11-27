@@ -35,7 +35,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${GeistSans.className} antialiased`}>
-        <div>{children}</div>
+        <div className="relative">{children}</div>
       </body>
     </html>
   );
