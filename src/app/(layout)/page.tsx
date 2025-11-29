@@ -7,6 +7,7 @@ import "@/app/mux-player.css";
 import BackgroundGradientLayer from "@/components/BackgroundGradientLayer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -27,7 +28,7 @@ export default async function Home() {
 
 function LandingPage() {
   return (
-    <div className="px-10">
+    <div className="px-10 pb-25">
       <div className="">
         <h1 className="text-[3.5rem] leading-18 max-w-3xl mx-auto font-bold text-center pt-28">
           Turning your expertise into revenue just got easier
@@ -36,9 +37,12 @@ function LandingPage() {
           Create and sell online courses, build vibrant communities, and
           monetize memberships - all on a single, scalable platform.
         </p>
-        <Button className="mt-5 block h-12 w-full max-w-sm mx-auto ">
+        <Link
+          href="/login"
+          className="items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 mt-5 block w-full max-w-sm mx-auto h-12 px-4 has-[>svg]:px-3 text-center leading-12"
+        >
           Start Learning
-        </Button>
+        </Link>
       </div>
       <div className="max-w-4xl mx-auto">
         <section className="mt-25 pt-4.5">
@@ -110,7 +114,12 @@ function LandingPage() {
                 </span>
                 <span className="text-sm font-semibold text-gray-500">USD</span>
               </div>
-              <Button className="mt-4.5 w-full">Buy now</Button>
+              <Link
+                className="rounded-lg items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 mt-5 block w-full max-w-sm mx-auto h-10 px-4 has-[>svg]:px-3 text-center leading-10"
+                href="/login"
+              >
+                Buy now
+              </Link>
               <p className="mt-4.5 text-center">
                 Invoices and receipts available for easy company reimbursement.
               </p>
@@ -118,8 +127,6 @@ function LandingPage() {
           </div>
         </section>
       </div>
-
-      <div className="mt-15"></div>
     </div>
   );
 }

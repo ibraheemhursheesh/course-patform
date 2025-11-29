@@ -16,29 +16,31 @@ export default function Course({ course }) {
   ];
   return (
     <li
-      className="grid grid-rows-subgrid row-span-7 relative rounded-xl bg-cover border border-zinc-300 overflow-hidden bg-white text-black "
-      // style={{
-      //   backgroundImage: `url(/${course.image})`,
-      //   backgroundPosition: "50% 35%",
-      // }}
+      className="relative rounded-xl bg-cover border border-zinc-300 overflow-hidden bg-white text-black "
+      style={{
+        backgroundImage: `url(/${course.image})`,
+      }}
       key={course.id}
     >
-      <Image
+      {/* <Image
         alt={course.title}
         src={"/" + course.image}
         className="w-full aspect-video object-cover"
         width={626}
         height={356}
-      />
+      /> */}
       {/* <div className="absolute inset-0 bg-slate-900/25 backdrop-blur-[1px]"></div> */}
-      {/* <div className="absolute inset-0" style={course.style}></div> */}
+      <div
+        className="absolute inset-0 bg-gray-100/30"
+        style={course.style}
+      ></div>
 
-      <div className="relative p-4 pt-0 grid grid-rows-subgrid row-span-6">
-        <h2 className="text-3xl font-bold">{course.title}</h2>
-        {/* <p className="mt-2 text-zinc-700">{course.shortDescription}</p> */}
-        <p className="text-lg max-w-2xl ">{course.description}</p>
-        <h3>Tech stack:</h3>
-        <ul className="flex gap-2">
+      <div className="relative p-4 pb-10">
+        <h2 className="text-3xl font-bold mt-3">{course.title}</h2>
+        <p className="mt-2 text-zinc-700">{course.shortDescription}</p>
+        <p className="text-lg max-w-2xl mt-5">{course.description}</p>
+        {/* <h3 className="mt-3">Tech stack:</h3>
+        <ul className="flex gap-2 mt-1">
           {course.techStack.map((tech, index) => (
             <li
               className={`text-sm px-2 py-1 rounded-sm font-medium ${skillClassNames[index]}`}
@@ -47,34 +49,35 @@ export default function Course({ course }) {
               {tech}
             </li>
           ))}
-        </ul>
-        <div className="flex gap-5 mt-10">
+        </ul> */}
+        <div className="flex flex-wrap gap-5 mt-45 mb-5">
           <div className="flex gap-3">
             <Image
               alt="Instructor Avatar"
-              className="rounded-full shrink-0 size-12.5"
+              className="rounded-full shrink-0 size-10.5"
               src="/avatar.png"
               width={50}
               height={50}
             />
             <div>
-              <p className="text-zinc-700">Taught by</p>
-              <p>{course.taughtBy}</p>
+              <p className="text-zinc-700 text-xs lg:text-sm">Taught by</p>
+              <p className="text-sm lg:text-base">{course.taughtBy}</p>
             </div>
           </div>
           <div className="flex gap-3 items-center">
-            <Clock size={30} />
+            <Clock className="hidden sm:block" size={30} />
             <div>
-              <p className="text-zinc-700">Length</p>
-              <p>{course.length}</p>
+              <p className="text-zinc-700 text-xs lg:text-sm">Length</p>
+              <p className="text-sm lg:text-base">{course.length}</p>
             </div>
           </div>
-        </div>{" "}
-        <Link href="/1001001001001001">
-          <Button className=" hover:bg-zinc-800 rounded-full min-w-xs block mx-auto">
-            Watch now{" "}
-          </Button>
-        </Link>
+        </div>
+        {/* <Link
+          className="rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 mt-5 block w-full max-w-sm mx-auto h-10 px-4 has-[>svg]:px-3 text-center leading-10"
+          href="/1001001001001001"
+        >
+          Watch now
+        </Link> */}
       </div>
     </li>
   );

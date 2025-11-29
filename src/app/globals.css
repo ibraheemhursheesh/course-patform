@@ -6,6 +6,7 @@
 @theme {
   --breakpoint-lg: 74rem;
   --breakpoint-md: 60rem;
+  --breakpoint-footer: 55.5rem;
 }
 
 @theme inline {

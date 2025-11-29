@@ -36,26 +36,29 @@ export default function Header({ user }) {
       </div>
       <nav>
         <ul className="flex gap-7 items-center">
-          <li>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button>Courses</button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-fit" align="center">
-                <DropdownMenuGroup>
-                  <DropdownMenuItem className="">
-                    <Link href="/1001001001001001">React</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="">
-                    <Link href="/1001001001001001">Framer Motion</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="">
-                    <Link href="/1001001001001001">Remix</Link>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </li>
+          {user && (
+            <li>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button>Courses</button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-fit" align="center">
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem className="">
+                      <Link href="/1001001001001001">React</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="">
+                      <Link href="/1001001001001001">Framer Motion</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="">
+                      <Link href="/1001001001001001">Remix</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+          )}
+
           <Link href="/contact">Contact</Link>
           <li>
             {user ? (
