@@ -20,8 +20,8 @@ export default function CourseNavigation({
       className={`${
         isPlacedDownVideo
           ? "block"
-          : "hidden  border-l border-zinc-200 md:w-[300px] lg:w-[400px]"
-      } md:block  bg-white relative shrink-0`}
+          : "hidden border-l border-zinc-200 md:w-[300px] lg:w-[400px]"
+      } md:block pb-25  bg-white relative shrink-0`}
       style={{ overflowAnchor: "none" }}
     >
       <div

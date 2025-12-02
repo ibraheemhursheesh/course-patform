@@ -52,6 +52,11 @@ export async function updateSession(request: NextRequest) {
       const url = request.nextUrl.clone();
       url.pathname = "/";
       return NextResponse.redirect(url);
+    } else if (user && request.nextUrl.pathname === "/login") {
+      // user is signed in, potentially respond by redirecting the user to the home page
+      const url = request.nextUrl.clone();
+      url.pathname = "/";
+      return NextResponse.redirect(url);
     }
   // ...existing code...
   return supabaseResponse;

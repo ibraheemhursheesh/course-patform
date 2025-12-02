@@ -1,8 +1,6 @@
 // @ts-nocheck
 import { createClient } from "@/lib/supabase/server";
-
 import { Suspense } from "react";
-
 import CreateCommentForm from "./CreateCommentForm";
 import Comments from "./Comments";
 
@@ -13,7 +11,6 @@ export default async function CommentsSection({ lesson }) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Fetch comments and upvotes in parallel
   const [commentsResponse, upvotesResponse, repliesResponse] =
     await Promise.all([
       supabase
@@ -37,7 +34,7 @@ export default async function CommentsSection({ lesson }) {
   const allReplies = repliesResponse.data ?? [];
 
   return (
-    <div className="p-7 pb-20">
+    <div className="p-7 pb-45">
       <h2 className="mb-5">
         <p className="text-2xl font-bold">
           Have a question about this lecture?

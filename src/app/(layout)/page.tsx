@@ -8,6 +8,7 @@ import BackgroundGradientLayer from "@/components/BackgroundGradientLayer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import Course from "@/components/Course";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -16,10 +17,8 @@ export default async function Home() {
   const user = data?.user?.user_metadata;
 
   return user ? (
-    <div className=" pt-10 pb-25" in="ind">
-      {/* <h1 className="text-4xl font-bold text-center">Access Your Courses</h1>
-      <CourseList /> */}
-      You're logged in now.
+    <div className="pt-10 pb-25" in="ind">
+      <Dashboard />
     </div>
   ) : (
     <LandingPage />
@@ -127,6 +126,16 @@ function LandingPage() {
           </div>
         </section>
       </div>
+      <div className="mt-15"></div>
+    </div>
+  );
+}
+
+function Dashboard() {
+  return (
+    <div className="px-10 pb-25 max-w-6xl mx-auto">
+      <h1 className="text-4xl font-bold text-center">Access Your Courses</h1>
+      <CourseList insideDashboard={true} />
     </div>
   );
 }

@@ -65,6 +65,11 @@ export const loginWithGoogle = async () => {
     },
   });
 
+  console.log("user data =>", data);
+  // const { er } = await supabase
+  //   .from("user_data")
+  //   .insert({ user_id: userId });
+
   if (data?.url) redirect(data.url);
 };
 
@@ -205,4 +210,51 @@ export const toggleUpvote = async (toggle, commentId, lectureId, pathname) => {
       }
     }
   }
+};
+
+export const addWatchedLesson = async (lesson) => {
+  console.log("lesson from server action", lesson);
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  console.log("userid", user.id);
+
+  const { data: current, error: currentError } = await supabase
+    .from("user_data")
+    .select()
+    .eq("user_id", user.id);
+
+  console.log("WHAT IS INSIDE DATABASE", current);
+  if (currentError) console.error(currentError);
+
+  if (!current[0]) {
+    const { data, error } = await supabase.from("user_data").insert({
+      user_id: user?.id,
+      watchedLessons: [],
+    });
+
+    if (error)
+      console.error("error while creating watchedLessons column", error);
+  }
+
+  const isWatched = current[0]
+    ? current[0].watchedLessons.find(
+        (watchedLesson) => watchedLesson === lesson
+      )
+    : false;
+
+  if (isWatched) return;
+  const watchedLessons = current[0]?.watchedLessons;
+  const updated = [...(watchedLessons || []), lesson];
+
+  const { data, error } = await supabase
+    .from("user_data")
+    .update({ watchedLessons: updated })
+    .eq("user_id", user.id);
+
+  revalidatePath("/react-from-scratch");
+
+  if (error) console.error(error.message);
 };

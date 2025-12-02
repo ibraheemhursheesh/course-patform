@@ -6,13 +6,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Suspense } from "react";
 import CommentsLoader from "@/components/CommentsLoader";
 import CourseNavigation from "@/components/CourseNavigation";
+import CreateCommentForm from "./CreateCommentForm";
 
 export default function VideoTabs({
   children,
   lectureTitle,
+  lesson,
 }: {
   children: React.ReactNode;
   lectureTitle: string;
+  lesson: string;
 }) {
   const [isMobile, setIsMobile] = React.useState(false);
   const handleResize = (e) => {
@@ -23,6 +26,8 @@ export default function VideoTabs({
   };
 
   React.useEffect(function () {
+    if (window.innerWidth >= 960) setIsMobile(false);
+    else setIsMobile(true);
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -52,7 +57,20 @@ export default function VideoTabs({
           </TabsContent>
         </Tabs>
       ) : (
-        <Suspense fallback={<CommentsLoader />}>{children}</Suspense>
+        <Suspense
+          fallback={
+            <>
+              {" "}
+              <CreateCommentForm
+                userData={{ user_metadata: { avatar_url: "" } }}
+                lesson={lesson}
+              />
+              <CommentsLoader />
+            </>
+          }
+        >
+          {children}
+        </Suspense>
       )}
     </div>
   );

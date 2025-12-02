@@ -48,14 +48,6 @@ export default function BackgroundGradientLayer({ login }) {
             ))}
         </div>
       </div>
-      {login && (
-        <div
-          className={`absolute w-full h-30 top-[555px]`}
-          style={{
-            background: "linear-gradient(0deg, white 50%, transparent)",
-          }}
-        ></div>
-      )}
     </div>
   );
 }

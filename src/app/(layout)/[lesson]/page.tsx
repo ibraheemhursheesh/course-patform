@@ -10,6 +10,7 @@ import CommentsSection from "@/components/CommentSection";
 import "@/app/mux-player.css";
 
 import VideoTabs from "@/components/VideoTabs";
+import VideoPlayer from "@/components/VideoPlayer";
 
 export default async function Page({ params }) {
   const { lesson } = await params;
@@ -30,16 +31,10 @@ export default async function Page({ params }) {
 
   return (
     <div className="w-full">
-      <MuxPlayer
-        playbackId="3RFmRP01GolCsOBblYzZOlVHVr8029ae5Vqjkxsdrk92k"
-        streamType="on-demand"
-        className="aspect-video block"
-        accentColor="white"
-        // onEnded={() => // console.log("onEnded")}
-      />
+      <VideoPlayer lesson={lesson} />
 
       <div className="" in="ind">
-        <VideoTabs lectureTitle={lectureTitle}>
+        <VideoTabs lesson={lesson} lectureTitle={lectureTitle}>
           <CommentsSection lesson={lesson} />
         </VideoTabs>
       </div>

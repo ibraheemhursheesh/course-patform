@@ -2,12 +2,12 @@
 import React from "react";
 import Course from "./Course";
 
-export default function CourseList() {
+export default function CourseList({ insideDashboard }) {
   const courses = [
     {
       id: 1,
       title: "Framer Motion",
-      slug: "course-1",
+      slug: "framer-motion",
       shortDescription:
         "Add beautiful animations to your React apps using Framer Motion.",
       description:
@@ -23,7 +23,7 @@ export default function CourseList() {
     {
       id: 1,
       title: "React From Scratch",
-      slug: "course-1",
+      slug: "react-from-scratch",
       shortDescription:
         "Learn React by building rich, interactive UI components from scratch.",
       description:
@@ -58,9 +58,18 @@ export default function CourseList() {
     // },
   ];
   return (
-    <ul className="grid grid-cols-1 gap-5 justify-center mt-10 mx-auto">
+    <ul
+      className={`grid:grid ${
+        insideDashboard ? "" : " grid-cols-1"
+      } gap-5 justify-center mt-10 mx-auto`}
+      style={{ gridTemplateColumns: "repeat(auto-fill,minmax(450px,1fr))" }}
+    >
       {courses.map((course) => (
-        <Course key={course.title} course={course} />
+        <Course
+          key={course.title}
+          insideDashboard={insideDashboard}
+          course={course}
+        />
       ))}
     </ul>
   );

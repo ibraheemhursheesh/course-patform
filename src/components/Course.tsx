@@ -4,9 +4,13 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import { Clock } from "lucide-react";
+import Pieces from "./svgs/Pieces";
+import Keyboard from "./svgs/Keyboard";
 
-export default function Course({ course }) {
+export default function Course({ insideDashboard, course }) {
   // console.log(course.style);
+
+  const isReactCourse = course.slug === "react-from-scratch";
 
   const skillClassNames = [
     "text-[#007b83] bg-[#e4f7fb]",
@@ -16,24 +20,21 @@ export default function Course({ course }) {
   ];
   return (
     <li
-      className="relative rounded-xl bg-cover border border-zinc-300 overflow-hidden bg-white text-black "
-      style={{
-        backgroundImage: `url(/${course.image})`,
-      }}
+      className="relative rounded-xl bg-cover border border-zinc-300 overflow-hidden bg-white text-black nth-[2]:mt-7.5 grid:nth-[2]:mt-0"
+      // style={
+      //   isReactCourse
+      //     ? {}
+      //     : {
+      //         backgroundImage: `url(/${course.image})`,
+      //       }
+      // }
       key={course.id}
     >
-      {/* <Image
-        alt={course.title}
-        src={"/" + course.image}
-        className="w-full aspect-video object-cover"
-        width={626}
-        height={356}
-      /> */}
-      {/* <div className="absolute inset-0 bg-slate-900/25 backdrop-blur-[1px]"></div> */}
       <div
         className="absolute inset-0 bg-gray-100/30"
         style={course.style}
       ></div>
+      {/* {isReactCourse ? <Keyboard /> : <Pieces />} */}
 
       <div className="relative p-4 pb-10">
         <h2 className="text-3xl font-bold mt-3">{course.title}</h2>
@@ -72,13 +73,18 @@ export default function Course({ course }) {
             </div>
           </div>
         </div>
-        {/* <Link
-          className="rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 mt-5 block w-full max-w-sm mx-auto h-10 px-4 has-[>svg]:px-3 text-center leading-10"
-          href="/1001001001001001"
-        >
-          Watch now
-        </Link> */}
+        {insideDashboard && (
+          <Link
+            className="rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-zinc-800 mt-5 block w-full max-w-sm mx-auto h-10 px-4 has-[>svg]:px-3 text-center leading-10"
+            href={"/" + course.slug}
+          >
+            Watch now
+          </Link>
+        )}
       </div>
     </li>
   );
 }
+
+
+
