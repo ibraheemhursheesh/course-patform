@@ -30,16 +30,130 @@ export default function Course({ insideDashboard, course }) {
       // }
       key={course.id}
     >
-      <div
+      {/* <div
         className="absolute inset-0 bg-gray-100/30"
         style={course.style}
-      ></div>
+      ></div> */}
       {/* {isReactCourse ? <Keyboard /> : <Pieces />} */}
+      {isReactCourse && (
+        <div className="w-full aspect-video rounded-sm p-3 relative overflow-hidden bg-gray-950/2.5 after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:inset-ring after:inset-ring-gray-950/5 dark:after:inset-ring-white/10 bg-[radial-gradient(var(--pattern-fg)_1px,transparent_0)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 dark:[--pattern-fg:var(--color-white)]/10 @container">
+          {" "}
+          <div className="absolute top-2 right-4 opacity-5 text-6xl font-bold">
+            #{1}
+          </div>
+          <svg
+            width="80%"
+            height="auto"
+            viewBox="0 0 250 150"
+            className=" absolute -bottom-[20%] -right-[32%] opacity-50 rotate-14"
+            style={{
+              fill: "hsl(388, 50%, 50%)",
+              stroke: "hsl(388, 50%, 30%)",
+            }}
+          >
+            <g
+              id="cube7"
+              dataSvgOrigin="0 -12.027886390686035"
+              transform="matrix(1,0,0,1,50,78)"
+              style={{
+                translate: "none",
+                rotate: "none",
+                scale: "none",
+                transformOrigin: "0px 0px",
+              }}
+            >
+              <rect width="21" height="24" transform="skewY(30)"></rect>
+              <rect
+                width="21"
+                height="24"
+                transform="skewY(-30) translate(21 24.3)"
+              ></rect>
+              <rect
+                width="21"
+                height="21"
+                transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+              ></rect>
+            </g>
+            <g
+              id="cube8"
+              dataSvgOrigin="0 -12.027886390686035"
+              transform="matrix(1,0,0,1,50,54)"
+              style={{
+                translate: "none",
+                rotate: "none",
+                scale: "none",
+                transformOrigin: "0px 0px",
+              }}
+            >
+              <rect width="21" height="24" transform="skewY(30)"></rect>
+              <rect
+                width="21"
+                height="24"
+                transform="skewY(-30) translate(21 24.3)"
+              ></rect>
+              <rect
+                width="21"
+                height="21"
+                transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+              ></rect>
+            </g>
+            <g
+              id="cube9"
+              dataSvgOrigin="0 -12.027886390686035"
+              transform="matrix(1,0,0,1,71,90)"
+              style={{
+                translate: "none",
+                rotate: "none",
+                scale: "none",
+                transformOrigin: "0px 0px",
+              }}
+            >
+              <rect width="21" height="24" transform="skewY(30)"></rect>
+              <rect
+                width="21"
+                height="24"
+                transform="skewY(-30) translate(21 24.3)"
+              ></rect>
+              <rect
+                width="21"
+                height="21"
+                transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+              ></rect>
+            </g>
+            <g
+              id="cube10"
+              dataSvgOrigin="0 -12.027886390686035"
+              transform="matrix(1,0,0,1,29,90)"
+              style={{
+                translate: "none",
+                rotate: "none",
+                scale: "none",
+                transformOrigin: "0px 0px",
+              }}
+            >
+              <rect width="21" height="24" transform="skewY(30)"></rect>
+              <rect
+                width="21"
+                height="24"
+                transform="skewY(-30) translate(21 24.3)"
+              ></rect>
+              <rect
+                width="21"
+                height="21"
+                transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+              ></rect>
+            </g>
+          </svg>{" "}
+          <h3 className="uppercase text-[5.7cqi] font-bold text-zinc-600 relative max-w-[260px] ">
+            {"React From Scratch"}{" "}
+          </h3>
+        </div>
+      )}
 
       <div className="relative p-4 pb-10">
-        <h2 className="text-3xl font-bold mt-3">{course.title}</h2>
+        {/* <h2 className="text-3xl font-bold mt-3">{course.title}</h2> */}
         <p className="mt-2 text-zinc-700">{course.shortDescription}</p>
-        <p className="text-lg max-w-2xl mt-5">{course.description}</p>
+        {/* <p className="text-lg max-w-2xl mt-5">{course.description}</p> */}
         {/* <h3 className="mt-3">Tech stack:</h3>
         <ul className="flex gap-2 mt-1">
           {course.techStack.map((tech, index) => (
@@ -51,7 +165,7 @@ export default function Course({ insideDashboard, course }) {
             </li>
           ))}
         </ul> */}
-        <div className="flex flex-wrap gap-5 mt-45 mb-5">
+        <div className="flex flex-wrap gap-5 mt-15 mb-5">
           <div className="flex gap-3">
             <Image
               alt="Instructor Avatar"
