@@ -40,6 +40,7 @@ export default function Comment({
   user,
   onOptimisticAdd,
   type,
+  isVisible,
 }) {
   const [isEditing, setIsEditing] = React.useState(false);
   const [isReplying, setIsReplying] = React.useState(false);
@@ -155,8 +156,22 @@ export default function Comment({
   console.log("commenterAvatar", commenterAvatar);
 
   return (
-    <li className={` ${type === "comment" ? "mt-7" : "mt-5"} flex flex-col   `}>
-      <div className="flex gap-5">
+    <li
+      className={` ${
+        type === "comment"
+          ? `${
+              repliesVisible ? "before:bg-zinc-300" : ""
+            } mt-7 before:absolute before:w-0.5 before:ml-5 before:h-[calc(100%-40px)] before:mt-10`
+          : "mt-5 group"
+      } flex flex-col relative`}
+    >
+      <div
+        className={`flex gap-2.5 rounded-md ${
+          type === "comment"
+            ? ""
+            : `after:size-10 after:absolute after:border-zinc-300 after:border-b-2 after:border-l-2 after:rounded-bl-lg after:-ml-3 after:-top-5 before:absolute before:w-0.5 before:h-full before:-left-3 group-last:before:bg-white`
+        }`}
+      >
         {" "}
         {commenterAvatar ? (
           <Image
@@ -164,18 +179,22 @@ export default function Comment({
             alt={commenterName}
             width={40}
             height={40}
-            className="rounded-full self-start"
+            className="rounded-full self-start relative z-1"
           />
         ) : (
           <div className="size-10 bg-black rounded-full self-start"></div>
         )}
         {/* <div className="bg-white"> */}
-        <div className="grow flex gap-5 bg-[#fbfbfb] p-5 rounded-md border ">
+        <div
+          className={`grow flex gap-2.5 sm:bg-[#fbfbfb] sm:p-5 sm:rounded-md sm:border ${
+            type === "comment" ? "" : "pr-2.5"
+          }`}
+        >
           <div className="grow">
             {" "}
             <div className="flex gap-2 text-sm">
-              <p className="font-bold">{commenterName}</p>
-              <p className="text-zinc-700">{date}</p>
+              <p className="font-bold text-sm sm:text-base">{commenterName}</p>
+              <p className="text-zinc-700 text-sm sm:text-base">{date}</p>
             </div>
             {isEditing ? (
               <form className="mt-2" onSubmit={handleUpdateSubmit}>
@@ -201,16 +220,17 @@ export default function Comment({
               </form>
             ) : (
               <div>
-                <p className="mt-2">
+                <p className="mt-1 text-base sm:text-base">
                   {/* {comment.length > 350
                     ? comment.slice(0, 350) + "..."
                     : comment} */}
                   {comment}
                 </p>
-                <div className="flex items-center gap-3 mt-3 flex-wrap">
+                <div className="flex items-center gap-1 sm:gap-3 mt-2 flex-wrap">
                   <Button
                     onClick={upvoteComment}
-                    className={`min-w-[75px] text-center shrink-0 rounded-full`}
+                    className={`min-w-[60px] sm:min-w-[75px] text-center shrink-0 rounded-full`}
+                    // style={{ paddingInline: "8px" }}
                     variant="outline"
                   >
                     <Heart fill={isUpvotedByUser ? "black" : "none"} />
@@ -221,6 +241,7 @@ export default function Comment({
                     <Button
                       onClick={handleReply}
                       className="min-w-[75px] text-center shrink-0 rounded-full"
+                      // style={{ paddingInline: "8px" }}
                       variant="outline"
                     >
                       <MessageSquareText />
@@ -231,6 +252,7 @@ export default function Comment({
                     <Button
                       className="min-w-[75px] text-center shrink-0 rounded-full"
                       variant="outline"
+                      // style={{ paddingInline: "8px" }}
                       onClick={() => setRepliesVisible(!repliesVisible)}
                     >
                       {repliesVisible ? "Hide" : "View"} {commentReplies.length}{" "}
@@ -280,7 +302,7 @@ export default function Comment({
         <ul
           // style={{ interpolateSize: "allow-keywords" }}
           // className="mt-5 pl-5 starting:h-0 h-auto duration-500 ease-out overflow-y-hidden bg-zinc-300"
-          className=" ml-15"
+          className="ml-8"
         >
           {commentReplies.map((reply, index) => {
             const questionUpvotes = allQuestionUpvotes.filter(
@@ -296,6 +318,7 @@ export default function Comment({
                 user={user}
                 onOptimisticAdd={(c) => addOptimisticReplies(c)}
                 type={reply.type}
+                isVisible={repliesVisible}
               />
             );
           })}

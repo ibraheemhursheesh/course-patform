@@ -61,7 +61,7 @@ export default function CourseList({ insideDashboard }) {
     <ul
       className={`grid:grid ${
         insideDashboard ? "" : " grid-cols-1"
-      } gap-5 justify-center mt-10 mx-auto`}
+      } gap-5 justify-center mt-10 mx-auto max-w-2xl`}
       style={{ gridTemplateColumns: "repeat(auto-fill,minmax(450px,1fr))" }}
     >
       {courses.map((course) => (

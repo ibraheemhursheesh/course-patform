@@ -65,9 +65,9 @@ export default function Header({ user }) {
             <Link href="/contact">Contact</Link>
             <li>
               {user ? (
-                // <Button onClick={logoutWithGoogle}>Logout</Button>
-                <Link href="/account">Account</Link>
+                <Button onClick={logoutWithGoogle}>Logout</Button>
               ) : (
+                // <Link href="/account">Account</Link>
                 <Link href="/login">Login</Link>
               )}
             </li>

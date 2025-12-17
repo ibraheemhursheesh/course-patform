@@ -26,6 +26,7 @@ import {
 } from "@/utils/actions";
 import SumbitFormButton from "./SumbitFormButton";
 import { setegid } from "process";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [isOTPRequested, setIsOTPRequested] = React.useState(false);
@@ -71,15 +72,24 @@ export default function LoginForm() {
 
   return (
     <>
-      <div className="flex h-dvh items-center justify-center flex-col gap-3 relative">
-        <h1 className="text-3xl font-bold">Login to access courses</h1>
+      <div className="flex h-dvh items-center justify-center flex-col gap-3 relative px-4  max-w-lg mx-auto">
+        <Link
+          href="/"
+          className="flex uppercase text-zinc-700 font-bold text-5xl"
+        >
+          <div className="">Un</div>
+          <div className="text-3xl">Packed</div>
+        </Link>
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mt-7.5">
+          Login to access courses
+        </h1>
         <form
           onSubmit={handleEmailSubmit}
           // action={loginWithOTP}
-          className="flex flex-col w-100 mx-5 mt-5 gap-2"
+          className="flex flex-col mt-3 gap-2 w-full"
         >
           <Input
-            className="bg-white"
+            className="bg-zinc-100"
             type="email"
             name="email"
             placeholder="Email"
@@ -96,9 +106,9 @@ export default function LoginForm() {
 
         <form
           action={loginWithGoogle}
-          className="flex flex-col w-100 mx-5 gap-2"
+          className="flex flex-col mx-5 gap-2 w-full"
         >
-          <Button className="" variant="outline">
+          <Button className="bg-zinc-100" variant="outline">
             <svg
               viewBox="-3 0 262 262"
               xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +156,7 @@ export default function LoginForm() {
         <p className="max-w-sm text-center">
           Note that, for demo puposes, you are not required to go through any
           purchase process, you just need to create an account and you'll be
-          able to explore all platform features..
+          able to explore all the platform features..
         </p>
       </div>
 

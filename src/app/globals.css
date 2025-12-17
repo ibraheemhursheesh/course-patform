@@ -10,6 +10,7 @@
   --breakpoint-grid: 33.75rem;
   --breakpoint-card: 30.5rem;
   --breakpoint-lesson-grid: 69.5rem;
+  --breakpoint-mobile: 791px;
 }
 
 @theme inline {
@@ -133,3 +134,5 @@
     cursor: pointer;
   }
 }
+
+

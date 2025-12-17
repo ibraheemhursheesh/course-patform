@@ -27,14 +27,14 @@ export default async function Home() {
 
 function LandingPage() {
   return (
-    <div className="px-10 pb-25">
-      <div className="">
-        <h1 className="text-[3.5rem] leading-18 max-w-3xl mx-auto font-bold text-center pt-28">
-          Turning your expertise into revenue just got easier
+    <div className=" pb-25">
+      <div className="px-7 sm:px-10">
+        <h1 className="text-[42px] leading-11.5 sm:text-[3.5rem] sm:leading-16 max-w-3xl mx-auto font-bold text-center pt-28">
+          Learn how to craft stunning user interfaces
         </h1>
-        <p className="text-xl text-zinc-600 max-w-3xl mx-auto text-center mt-2">
-          Create and sell online courses, build vibrant communities, and
-          monetize memberships - all on a single, scalable platform.
+        <p className="text-lg sm:text-xl text-zinc-600 max-w-3xl mx-auto text-center mt-2">
+          high-quality courses that teaches you how to build performant,
+          accessible, cutting-edge web interfaces
         </p>
         <Link
           href="/login"
@@ -43,7 +43,7 @@ function LandingPage() {
           Start Learning
         </Link>
       </div>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-5">
         <section className="mt-25 pt-4.5">
           <h2 className="text-xl font-semibold md:text-2xl">
             Deep dive into foundational topics
@@ -64,13 +64,12 @@ function LandingPage() {
             <div className="flex flex-col sm:mt-8 sm:flex-row lg:mt-0">
               <div className="mt-5 max-w-xl sm:pr-8 lg:max-w-[75ch] lg:pr-0">
                 <p>
-                  Hey! We're Sam Selikoff and Ryan Toronto, and together we've
-                  been teaching frontend development for over eight years
-                  through our podcast, in-person trainings, conference talks,
-                  and more recently on our YouTube channels. We love sharing
-                  what excites us about frontend development. Check out our
-                  YouTube channels and conference talks to get a feel for our
-                  teaching style.
+                  Hey! I'm Ibrahim Harchiche, I've been teaching frontend
+                  development for over eight years through our podcast,
+                  in-person trainings, conference talks, and more recently on my
+                  YouTube channel. I love sharing what excites me about frontend
+                  development. Check out my YouTube channel and conference talks
+                  to get a feel for my teaching style.
                 </p>
               </div>
               <div className="-order-1 mx-auto my-10 flex max-w-[250px] justify-center sm:order-1 sm:my-0 sm:w-1/3 sm:shrink-0 sm:items-start md:max-w-none lg:my-12">
@@ -104,14 +103,14 @@ function LandingPage() {
               </p>
             </div>
             <div className=" w-xs px-3">
-              <p className="text-sm font-semibold text-center text-gray-800">
+              <p className="text-sm font-semibold text-center text-zinc-800">
                 Pay once, access forever
               </p>
               <div className="mt-6 text-center">
-                <span className="text-6xl font-bold tracking-tighter text-gray-800">
+                <span className="text-6xl font-bold tracking-tighter text-zinc-800">
                   $349
                 </span>
-                <span className="text-sm font-semibold text-gray-500">USD</span>
+                <span className="text-sm font-semibold text-zinc-500">USD</span>
               </div>
               <Link
                 className="rounded-lg items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 mt-5 block w-full max-w-sm mx-auto h-10 px-4 has-[>svg]:px-3 text-center leading-10"

@@ -36,7 +36,7 @@ export default function Footer() {
       </div>
 
       <div className="w-sm text-center footer:text-left">
-        <p>&copy; 2025 Build UI Inc. All rights reserved.</p>
+        <p>&copy; 2025 Unpacked Inc. All rights reserved.</p>
       </div>
     </footer>
   );
