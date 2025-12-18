@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { courseOne as course } from "@/data/course1";
 import { createClient } from "@/lib/supabase/server";
 import { watch } from "fs";
-import { Clapperboard } from "lucide-react";
+import { Check, Clapperboard, SquareCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -38,11 +38,120 @@ export default async function page() {
         <div className="grow">
           <div className="sticky top-10 w-full">
             <Keyboard />
-            <h1 className="text-3xl mobile:text-[3.5rem] leading-18 font-bold text-center relative mt-10">
+            <div className="w-full max-w-lg mx-auto aspect-video mt-10 rounded-sm p-3 relative overflow-hidden bg-gray-950/2.5 after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:inset-ring after:inset-ring-gray-950/5 dark:after:inset-ring-white/10 bg-[radial-gradient(var(--pattern-fg)_1px,transparent_0)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 dark:[--pattern-fg:var(--color-white)]/10 @container">
+              {" "}
+              <div className="absolute top-2 right-4 opacity-5 text-6xl font-bold"></div>
+              <svg
+                width="80%"
+                height="auto"
+                viewBox="0 0 250 150"
+                className=" absolute -bottom-[20%] -right-[32%] opacity-50 rotate-14"
+                style={{
+                  fill: "hsl(388, 50%, 50%)",
+                  stroke: "hsl(388, 50%, 30%)",
+                }}
+              >
+                <g
+                  id="cube7"
+                  dataSvgOrigin="0 -12.027886390686035"
+                  transform="matrix(1,0,0,1,50,78)"
+                  style={{
+                    translate: "none",
+                    rotate: "none",
+                    scale: "none",
+                    transformOrigin: "0px 0px",
+                  }}
+                >
+                  <rect width="21" height="24" transform="skewY(30)"></rect>
+                  <rect
+                    width="21"
+                    height="24"
+                    transform="skewY(-30) translate(21 24.3)"
+                  ></rect>
+                  <rect
+                    width="21"
+                    height="21"
+                    transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+                  ></rect>
+                </g>
+                <g
+                  id="cube8"
+                  dataSvgOrigin="0 -12.027886390686035"
+                  transform="matrix(1,0,0,1,50,54)"
+                  style={{
+                    translate: "none",
+                    rotate: "none",
+                    scale: "none",
+                    transformOrigin: "0px 0px",
+                  }}
+                >
+                  <rect width="21" height="24" transform="skewY(30)"></rect>
+                  <rect
+                    width="21"
+                    height="24"
+                    transform="skewY(-30) translate(21 24.3)"
+                  ></rect>
+                  <rect
+                    width="21"
+                    height="21"
+                    transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+                  ></rect>
+                </g>
+                <g
+                  id="cube9"
+                  dataSvgOrigin="0 -12.027886390686035"
+                  transform="matrix(1,0,0,1,71,90)"
+                  style={{
+                    translate: "none",
+                    rotate: "none",
+                    scale: "none",
+                    transformOrigin: "0px 0px",
+                  }}
+                >
+                  <rect width="21" height="24" transform="skewY(30)"></rect>
+                  <rect
+                    width="21"
+                    height="24"
+                    transform="skewY(-30) translate(21 24.3)"
+                  ></rect>
+                  <rect
+                    width="21"
+                    height="21"
+                    transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+                  ></rect>
+                </g>
+                <g
+                  id="cube10"
+                  dataSvgOrigin="0 -12.027886390686035"
+                  transform="matrix(1,0,0,1,29,90)"
+                  style={{
+                    translate: "none",
+                    rotate: "none",
+                    scale: "none",
+                    transformOrigin: "0px 0px",
+                  }}
+                >
+                  <rect width="21" height="24" transform="skewY(30)"></rect>
+                  <rect
+                    width="21"
+                    height="24"
+                    transform="skewY(-30) translate(21 24.3)"
+                  ></rect>
+                  <rect
+                    width="21"
+                    height="21"
+                    transform="scale(1.41,.81) rotate(45) translate(0 -21)"
+                  ></rect>
+                </g>
+              </svg>{" "}
+              <h3 className="uppercase text-[5.7cqi] font-bold text-zinc-600 relative max-w-[260px] ">
+                React From Scratch
+              </h3>
+            </div>
+            <h1 className="text-3xl mobile:text-[3.5rem] clas font-bold relative mt-3">
               React From Scratch
             </h1>
-            <div className="w-[75%] mx-auto">
-              <div>Your progress</div>
+            <div className="w-[75%]">
               {progress}%
               <Progress value={progress} className="mt-3" />
             </div>
@@ -217,6 +326,9 @@ export default async function page() {
                                 {lecture.description}
                               </p>
                             </div>
+                            {isWatched && (
+                              <Check className="mobile:hidden shrink-0 self-center stroke-zinc-600" />
+                            )}
                           </Link>
                         </li>
                       );

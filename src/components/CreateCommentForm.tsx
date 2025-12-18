@@ -55,7 +55,7 @@ export default function CreateCommentForm({
     <form ref={formRef} action={bindedCreateComment} onSubmit={handleSubmit}>
       <Textarea
         placeholder="Write your question.."
-        className="min-h-35 max-h-50 bg-[#fbfbfb]"
+        className="min-h-35 field-sizing-content max-h-76.5 bg-[#fbfbfb]"
         name="commentContent"
       />
       <Button

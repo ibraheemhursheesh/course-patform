@@ -41,18 +41,28 @@ export default function VideoTabs({
         {lectureTitle}
       </h1>
       {isMobile ? (
-        <Tabs defaultValue="course-content">
-          <div className="mx-7">
-            <TabsList className="w-full px-1">
-              <TabsTrigger value="course-content">Course Content</TabsTrigger>
-              <TabsTrigger value="qa">Qeustions</TabsTrigger>
+        <Tabs defaultValue="qa">
+          <div className="mx-7 border rounded-full bg-white">
+            <TabsList className="w-full px-1 gap-5">
+              <TabsTrigger className="rounded-full" value="course-content">
+                Course Content
+              </TabsTrigger>
+              <TabsTrigger className="rounded-full" value="qa">
+                Qeustions
+              </TabsTrigger>
             </TabsList>
           </div>
 
-          <TabsContent value="course-content">
+          <TabsContent
+            className="border border-zinc-300 rounded-lg mx-2 bg-white"
+            value="course-content"
+          >
             <CourseNavigation isPlacedDownVideo={true} />
           </TabsContent>
-          <TabsContent value="qa">
+          <TabsContent
+            className="border border-zinc-300 rounded-lg mx-2 bg-white"
+            value="qa"
+          >
             <Suspense fallback={<CommentsLoader />}>{children}</Suspense>
           </TabsContent>
         </Tabs>

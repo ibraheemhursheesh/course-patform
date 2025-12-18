@@ -9,6 +9,7 @@ export default function CourseLayout({
     <div className="flex">
       {children}
       <CourseNavigation />
+      <div className="mt-25"></div>
     </div>
   );
 }

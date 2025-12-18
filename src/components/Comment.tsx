@@ -184,43 +184,44 @@ export default function Comment({
         ) : (
           <div className="size-10 bg-black rounded-full self-start"></div>
         )}
-        {/* <div className="bg-white"> */}
-        <div
-          className={`grow flex gap-2.5 sm:bg-[#fbfbfb] sm:p-5 sm:rounded-md sm:border ${
-            type === "comment" ? "" : "pr-2.5"
-          }`}
-        >
-          <div className="grow">
-            {" "}
-            <div className="flex gap-2 text-sm">
-              <p className="font-bold text-sm sm:text-base">{commenterName}</p>
-              <p className="text-zinc-700 text-sm sm:text-base">{date}</p>
+        {isEditing ? (
+          <form className="w-full" onSubmit={handleUpdateSubmit}>
+            <input type="hidden" name="currentPath" value={pathname} />
+            <input type="hidden" name="commentId" value={commentId} />
+            <Textarea
+              name="updatedComment"
+              className="w-full min-h-30 field-sizing-content max-h-76.5 bg-white"
+              defaultValue={comment}
+            />
+            <div className="flex gap-3 items-center mt-3 ">
+              <Button
+                type="button"
+                variant="outline"
+                className="ml-auto rounded-full"
+                onClick={() => setIsEditing(false)}
+              >
+                {" "}
+                Cancel
+              </Button>{" "}
+              <SubmitFormButton>Update</SubmitFormButton>
             </div>
-            {isEditing ? (
-              <form className="mt-2" onSubmit={handleUpdateSubmit}>
-                <input type="hidden" name="currentPath" value={pathname} />
-                <input type="hidden" name="commentId" value={commentId} />
-                <Textarea
-                  name="updatedComment"
-                  className="w-full min-h-30 max-h-30 bg-white"
-                  defaultValue={comment}
-                />
-                <div className="flex gap-3 items-center mt-3 ">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="ml-auto rounded-full"
-                    onClick={() => setIsEditing(false)}
-                  >
-                    {" "}
-                    Cancel
-                  </Button>{" "}
-                  <SubmitFormButton>Update</SubmitFormButton>
-                </div>
-              </form>
-            ) : (
+          </form>
+        ) : (
+          <div
+            className={`grow flex gap-2.5 sm:bg-[#fbfbfb] sm:p-5 sm:rounded-md sm:border ${
+              type === "comment" ? "" : "pr-2.5"
+            }`}
+          >
+            <div className="grow">
+              {" "}
+              <div className="flex gap-2 text-sm">
+                <p className="font-bold text-sm sm:text-base">
+                  {commenterName}
+                </p>
+                <p className="text-zinc-700 text-sm sm:text-base">{date}</p>
+              </div>
               <div>
-                <p className="mt-1 text-base sm:text-base">
+                <p className="mt-1 text-base sm:text-base pr-2">
                   {/* {comment.length > 350
                     ? comment.slice(0, 350) + "..."
                     : comment} */}
@@ -262,41 +263,40 @@ export default function Comment({
                   )}
                 </div>
               </div>
-            )}
-            {isReplying && (
-              <form onSubmit={handleReplySubmit}>
-                <Textarea
-                  className="min-h-30 max-h-30 mt-5 bg-white"
-                  name="commentContent"
-                />
+            </div>
 
-                <div className="flex gap-3 items-center mt-3">
-                  <Button
-                    onClick={() => setIsReplying(false)}
-                    type="button"
-                    variant="outline"
-                    className="ml-auto  rounded-full"
-                  >
-                    Cancel
-                  </Button>
-                  <SubmitFormButton>Continue</SubmitFormButton>
-                </div>
-              </form>
+            {user.id === commenterId && (
+              <CommentActions
+                commentId={commentId}
+                setIsEditing={setIsEditing}
+                setIsReplying={setIsReplying}
+                pathname={pathname}
+                onOptimisticAdd={onOptimisticAdd}
+              />
             )}
           </div>
-
-          {user.id === commenterId && (
-            <CommentActions
-              commentId={commentId}
-              setIsEditing={setIsEditing}
-              setIsReplying={setIsReplying}
-              pathname={pathname}
-              onOptimisticAdd={onOptimisticAdd}
-            />
-          )}
-        </div>
-        {/* </div> */}
+        )}
       </div>
+      {isReplying && (
+        <form onSubmit={handleReplySubmit} className="ml-12.5">
+          <Textarea
+            className="min-h-30 field-sizing-content max-h-76.5 mt-5 bg-white"
+            name="commentContent"
+          />
+
+          <div className="flex gap-3 items-center mt-3">
+            <Button
+              onClick={() => setIsReplying(false)}
+              type="button"
+              variant="outline"
+              className="ml-auto  rounded-full"
+            >
+              Cancel
+            </Button>
+            <SubmitFormButton>Continue</SubmitFormButton>
+          </div>
+        </form>
+      )}
 
       {repliesVisible && (
         <ul

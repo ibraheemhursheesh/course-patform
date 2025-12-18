@@ -34,7 +34,7 @@ export default async function CommentsSection({ lesson }) {
   const allReplies = repliesResponse.data ?? [];
 
   return (
-    <div className="p-3 sm:p-7 pb-45">
+    <div className="p-3 sm:p-7 pb-45 sm:pb-45">
       <h2 className="mb-5">
         <p className="text-2xl font-bold">
           Have a question about this lecture?

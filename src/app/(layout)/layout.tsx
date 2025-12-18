@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
   const user = data?.user?.user_metadata;
   return (
     <>
-      {/* <BackgroundGradientLayer /> */}
+      <BackgroundGradientLayer />
       {/* {!user && <BackgroundGradientLayer />} */}
       <div className="relative">
         <Header user={user} />
