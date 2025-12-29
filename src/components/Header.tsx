@@ -30,9 +30,19 @@ export default function Header({ user }) {
           height={50}
           className="size-10"
         /> */}
-          <Link href="/" className="flex uppercase font-bold ">
-            <div className="">Un</div>
-            <div className="text-lg">packed</div>
+          <Link href="/" className="flex uppercase font-bold items-center">
+            <div className="size-12 relative mr-2.5">
+              <div className="absolute h-full w-0.25 top-0 left-2 bg-black"></div>
+              <div className="absolute h-full w-0.25  top-0 right-2 bg-black"></div>
+
+              <div className="absolute h-0.25 w-full top-2 left-0 bg-black"></div>
+              <div className="absolute h-0.25 w-full top-4 right-0 bg-zinc-400"></div>
+              <div className="absolute h-0.25 w-full top-6 left-0 bg-zinc-400"></div>
+              <div className="absolute h-0.25 w-full top-8 right-0 bg-zinc-400"></div>
+              <div className="absolute h-0.25 w-full top-10 left-0 bg-black"></div>
+            </div>
+            <div className="hidden sm:block">Un</div>
+            <div className="hidden sm:block text-lg">packed</div>
           </Link>
         </div>
         <nav>
@@ -62,10 +72,11 @@ export default function Header({ user }) {
               </li>
             )}
 
-            <Link href="/contact">Contact</Link>
             <li>
               {user ? (
-                <Button onClick={logoutWithGoogle}>Logout</Button>
+                <span className="cursor-pointer" onClick={logoutWithGoogle}>
+                  Logout
+                </span>
               ) : (
                 // <Link href="/account">Account</Link>
                 <Link href="/login">Login</Link>

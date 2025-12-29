@@ -62,3 +62,8 @@ media-playback-rate-menumedia-chrome-menu-item {
     /* pointer-events: none; */
     z-index: -1;
 }
+
+
+.wood {
+  --plyr-color-main: lightgreen;
+}

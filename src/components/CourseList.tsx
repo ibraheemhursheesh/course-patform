@@ -6,22 +6,6 @@ export default function CourseList({ insideDashboard }) {
   const courses = [
     {
       id: 1,
-      title: "Framer Motion",
-      slug: "framer-motion",
-      shortDescription:
-        "Add beautiful animations to your React apps using Framer Motion.",
-      description:
-        "In this course you'll learn Framer Motion from scratch by building six animated components. You'll start with the fundamentals of state-based animation, learn how to animate an unmounting component, create a reusable hook that can animate style properties on scroll, and use dynamic variants to customize an animation based on component state.",
-      image: "loading.webp",
-      taughtBy: "Ibrahim Harchiche",
-      length: "3 hours, 15 minutes",
-      techStack: ["React", "Framer Motion", "React Spring", "GSAP"],
-      style: {
-        backdropFilter: "blur(2px)",
-      },
-    },
-    {
-      id: 1,
       title: "React From Scratch",
       slug: "react-from-scratch",
       shortDescription:
@@ -35,6 +19,22 @@ export default function CourseList({ insideDashboard }) {
 
       style: {
         backdropFilter: "blur(1px)",
+      },
+    },
+    {
+      id: 1,
+      title: "Scalable Vector Graphics",
+      slug: "svgs",
+      shortDescription:
+        "Learn how to create, design, and animate beautiful vector graphics on the web.",
+      description:
+        "In this course you'll learn everything you need to know about svg on the web. You'll start with the fundamentals of svg, then we'll move to animating both two-dimensional and three-dimensional vector graphics, we'll deep dive into this, and last, you'll learn some design tips about svgs.",
+      image: "loading.webp",
+      taughtBy: "Ibrahim Harchiche",
+      length: "3 hours, 15 minutes",
+      techStack: ["React", "Framer Motion", "React Spring", "GSAP"],
+      style: {
+        backdropFilter: "blur(2px)",
       },
     },
 

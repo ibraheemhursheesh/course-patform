@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["lh3.googleusercontent.com"],
   },
+  turbopack: {
+    root: __dirname,
+  },
 };
 
 export default nextConfig;

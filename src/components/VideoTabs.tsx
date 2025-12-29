@@ -42,7 +42,7 @@ export default function VideoTabs({
       </h1>
       {isMobile ? (
         <Tabs defaultValue="qa">
-          <div className="mx-7 border rounded-full bg-white">
+          <div className="mx-2 border rounded-full bg-white">
             <TabsList className="w-full px-1 gap-5">
               <TabsTrigger className="rounded-full" value="course-content">
                 Course Content

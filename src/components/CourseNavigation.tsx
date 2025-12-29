@@ -1,19 +1,22 @@
 // @ts-nocheck
 "use client";
 import React, { useState } from "react";
-import { courseOne as course } from "@/data/course1";
+import { courseOne } from "@/data/course1";
+import { courseTwo } from "@/data/course1";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TableOfContents } from "lucide-react";
 
 export default function CourseNavigation({
   isPlacedDownVideo,
+  course,
 }: {
   isPlacedDownVideo?: boolean;
+  course?: string;
 }) {
   const pathname = usePathname();
 
-  // use resize listener here.
+  const navCourse = course === "react-from-scratch" ? courseOne : courseTwo;
 
   return (
     <nav
@@ -31,7 +34,7 @@ export default function CourseNavigation({
       >
         {" "}
         <ul>
-          {course.map((section, index) => (
+          {navCourse.map((section, index) => (
             <li key={section.sectionTitle} className="mt-7.5">
               <h2>
                 <p className="text-sm text-zinc-700">Module {index + 1}</p>

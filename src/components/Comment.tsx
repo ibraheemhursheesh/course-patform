@@ -190,7 +190,7 @@ export default function Comment({
             <input type="hidden" name="commentId" value={commentId} />
             <Textarea
               name="updatedComment"
-              className="w-full min-h-30 field-sizing-content max-h-76.5 bg-white"
+              className="w-full min-h-30 field-sizing-content max-h-76.5 bg-[#fbfbfb]"
               defaultValue={comment}
             />
             <div className="flex gap-3 items-center mt-3 ">
@@ -280,7 +280,7 @@ export default function Comment({
       {isReplying && (
         <form onSubmit={handleReplySubmit} className="ml-12.5">
           <Textarea
-            className="min-h-30 field-sizing-content max-h-76.5 mt-5 bg-white"
+            className="min-h-30 field-sizing-content max-h-76.5 mt-5 bg-[#fbfbfb]"
             name="commentContent"
           />
 

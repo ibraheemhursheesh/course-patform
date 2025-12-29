@@ -8,7 +8,7 @@ export default function Pieces() {
       viewBox="0 0 560 560"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute fill-zinc-400 stroke-zinc-400 opacity-35 top-5 -right-10"
+      className="relative -top-5 fill-zinc-400 stroke-zinc-400 opacity-35 w-[65%] h-auto "
     >
       <g transform="scale(1.1)" className="origin-center">
         <path

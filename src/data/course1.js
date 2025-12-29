@@ -516,3 +516,280 @@ export const courseOne = [
   },
 ];
 
+export const courseTwo = [
+  {
+    sectionTitle: "SVG Fundamentals",
+    lectures: [
+      {
+        id: "2002002002002001",
+        title: "What is SVG?",
+        videoUrl: "https://example.com/svg-lesson1.mp4",
+        duration: "05:12",
+        description:
+          "This lesson introduces SVG (Scalable Vector Graphics), explaining what it is, how it differs from raster images, and why it is ideal for modern, responsive interfaces.",
+      },
+      {
+        id: "2002002002002002",
+        title: "SVG vs PNG, JPG, and Canvas",
+        videoUrl: "https://example.com/svg-lesson2.mp4",
+        duration: "06:48",
+        description:
+          "You will compare SVG with raster formats and HTML Canvas, understanding performance, scalability, and use cases for each.",
+      },
+      {
+        id: "2002002002002003",
+        title: "How SVG Works in the Browser",
+        videoUrl: "https://example.com/svg-lesson3.mp4",
+        duration: "07:10",
+        description:
+          "This lesson explains how SVG is rendered by the browser, its DOM-based nature, and how it integrates with HTML and CSS.",
+      },
+      {
+        id: "2002002002002004",
+        title: "Inline SVG vs Image SVG",
+        videoUrl: "https://example.com/svg-lesson4.mp4",
+        duration: "06:02",
+        description:
+          "You’ll learn the difference between inline SVG, img-based SVG, and background SVGs, and when to use each approach.",
+      },
+      {
+        id: "2002002002002005",
+        title: "The SVG Coordinate System",
+        videoUrl: "https://example.com/svg-lesson5.mp4",
+        duration: "08:25",
+        description:
+          "This lesson covers the SVG coordinate system, viewBox, width, height, and how scaling works.",
+      },
+    ],
+  },
+
+  {
+    sectionTitle: "Core SVG Shapes and Elements",
+    lectures: [
+      {
+        id: "2002002002002006",
+        title: "Basic Shapes: Rect, Circle, Ellipse",
+        videoUrl: "https://example.com/svg-lesson6.mp4",
+        duration: "07:44",
+        description:
+          "You will learn how to create rectangles, circles, and ellipses using SVG shape elements and their attributes.",
+      },
+      {
+        id: "2002002002002007",
+        title: "Lines, Polylines, and Polygons",
+        videoUrl: "https://example.com/svg-lesson7.mp4",
+        duration: "06:58",
+        description:
+          "This lesson introduces line-based SVG elements and how to define multiple points for complex shapes.",
+      },
+      {
+        id: "2002002002002008",
+        title: "Paths Explained",
+        videoUrl: "https://example.com/svg-lesson8.mp4",
+        duration: "10:31",
+        description:
+          "You’ll deeply understand the SVG path element, path commands, and how complex shapes are built.",
+      },
+      {
+        id: "2002002002002009",
+        title: "Stroke and Fill Properties",
+        videoUrl: "https://example.com/svg-lesson9.mp4",
+        duration: "08:09",
+        description:
+          "This lesson covers fill, stroke, stroke-width, linecap, linejoin, and how they affect SVG appearance.",
+      },
+      {
+        id: "2002002002002010",
+        title: "Grouping with <g>",
+        videoUrl: "https://example.com/svg-lesson10.mp4",
+        duration: "05:47",
+        description:
+          "You’ll learn how to group SVG elements using the <g> tag to apply transforms and styles efficiently.",
+      },
+    ],
+  },
+
+  {
+    sectionTitle: "Styling SVGs",
+    lectures: [
+      {
+        id: "2002002002002011",
+        title: "Styling SVG with CSS",
+        videoUrl: "https://example.com/svg-lesson11.mp4",
+        duration: "09:02",
+        description:
+          "This lesson explains how to style SVG elements using CSS, including class selectors and inline styles.",
+      },
+      {
+        id: "2002002002002012",
+        title: "SVG Presentation Attributes",
+        videoUrl: "https://example.com/svg-lesson12.mp4",
+        duration: "06:35",
+        description:
+          "You will learn about SVG-specific presentation attributes and how they differ from CSS styles.",
+      },
+      {
+        id: "2002002002002013",
+        title: "Gradients: Linear and Radial",
+        videoUrl: "https://example.com/svg-lesson13.mp4",
+        duration: "08:56",
+        description:
+          "This lesson covers linear and radial gradients, gradientUnits, and how to create rich visual effects.",
+      },
+      {
+        id: "2002002002002014",
+        title: "Patterns and Masks",
+        videoUrl: "https://example.com/svg-lesson14.mp4",
+        duration: "10:12",
+        description:
+          "You’ll learn how to use SVG patterns and masks to create advanced visual designs.",
+      },
+      {
+        id: "2002002002002015",
+        title: "Clipping Paths",
+        videoUrl: "https://example.com/svg-lesson15.mp4",
+        duration: "07:41",
+        description:
+          "This lesson introduces clipPath and shows how to clip SVG elements into custom shapes.",
+      },
+    ],
+  },
+
+  {
+    sectionTitle: "SVG Transformations",
+    lectures: [
+      {
+        id: "2002002002002016",
+        title: "Translate, Scale, Rotate",
+        videoUrl: "https://example.com/svg-lesson16.mp4",
+        duration: "08:18",
+        description:
+          "You’ll learn how to move, resize, and rotate SVG elements using transform attributes.",
+      },
+      {
+        id: "2002002002002017",
+        title: "Transform Origins in SVG",
+        videoUrl: "https://example.com/svg-lesson17.mp4",
+        duration: "06:49",
+        description:
+          "This lesson explains how transform origins work differently in SVG compared to CSS.",
+      },
+      {
+        id: "2002002002002018",
+        title: "Combining Multiple Transforms",
+        videoUrl: "https://example.com/svg-lesson18.mp4",
+        duration: "07:55",
+        description:
+          "You’ll learn how to chain and combine multiple transforms effectively.",
+      },
+      {
+        id: "2002002002002019",
+        title: "Transforming Groups",
+        videoUrl: "https://example.com/svg-lesson19.mp4",
+        duration: "05:58",
+        description:
+          "This lesson focuses on transforming grouped SVG elements for cleaner and reusable designs.",
+      },
+    ],
+  },
+
+  {
+    sectionTitle: "Animating SVGs",
+    lectures: [
+      {
+        id: "2002002002002020",
+        title: "SVG Animations Overview",
+        videoUrl: "https://example.com/svg-lesson20.mp4",
+        duration: "06:44",
+        description:
+          "This lesson introduces different ways to animate SVGs: CSS, SMIL, and JavaScript.",
+      },
+      {
+        id: "2002002002002021",
+        title: "Animating SVG with CSS",
+        videoUrl: "https://example.com/svg-lesson21.mp4",
+        duration: "09:26",
+        description:
+          "You’ll animate SVG elements using CSS transitions and keyframes.",
+      },
+      {
+        id: "2002002002002022",
+        title: "Stroke Animations (Draw-on Effect)",
+        videoUrl: "https://example.com/svg-lesson22.mp4",
+        duration: "08:37",
+        description:
+          "This lesson teaches how to animate strokes using stroke-dasharray and stroke-dashoffset.",
+      },
+      {
+        id: "2002002002002023",
+        title: "Animating SVG with JavaScript",
+        videoUrl: "https://example.com/svg-lesson23.mp4",
+        duration: "10:41",
+        description:
+          "You’ll learn how to animate SVGs using JavaScript for more control and interactivity.",
+      },
+      {
+        id: "2002002002002024",
+        title: "Intro to Animation Libraries (GSAP)",
+        videoUrl: "https://example.com/svg-lesson24.mp4",
+        duration: "09:58",
+        description:
+          "This lesson introduces GSAP and how it simplifies complex SVG animations.",
+      },
+    ],
+  },
+
+  {
+    sectionTitle: "Design & Real-World SVG Projects",
+    lectures: [
+      {
+        id: "2002002002002025",
+        title: "Designing SVG Icons",
+        videoUrl: "https://example.com/svg-lesson25.mp4",
+        duration: "07:53",
+        description:
+          "You’ll learn best practices for designing clean, scalable SVG icons.",
+      },
+      {
+        id: "2002002002002026",
+        title: "Responsive SVGs",
+        videoUrl: "https://example.com/svg-lesson26.mp4",
+        duration: "08:29",
+        description:
+          "This lesson explains how to make SVGs responsive across screen sizes.",
+      },
+      {
+        id: "2002002002002027",
+        title: "SVG Performance Optimization",
+        videoUrl: "https://example.com/svg-lesson27.mp4",
+        duration: "09:14",
+        description:
+          "You’ll learn how to optimize SVGs for performance and reduce file size.",
+      },
+      {
+        id: "2002002002002028",
+        title: "Interactive SVG Components",
+        videoUrl: "https://example.com/svg-lesson28.mp4",
+        duration: "11:06",
+        description:
+          "This lesson shows how to build interactive SVGs with hover effects and user input.",
+      },
+      {
+        id: "2002002002002029",
+        title: "Building an Animated SVG Project",
+        videoUrl: "https://example.com/svg-lesson29.mp4",
+        duration: "14:32",
+        description:
+          "A full hands-on project where you design and animate an SVG from scratch.",
+      },
+      {
+        id: "2002002002002030",
+        title: "Course Wrap-up and Next Steps",
+        videoUrl: "https://example.com/svg-lesson30.mp4",
+        duration: "06:21",
+        description:
+          "The course concludes with a recap and guidance on advanced SVG and animation topics.",
+      },
+    ],
+  },
+];
