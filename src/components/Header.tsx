@@ -61,7 +61,7 @@ export default function Header({ user }) {
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem className="">
-                        <Link href="/react-from-scratch">Framer Motion</Link>
+                        <Link href="/svgs">SVG's</Link>
                       </DropdownMenuItem>
                       {/* <DropdownMenuItem className="">
                       <Link href="/1001001001001001">Remix</Link>
