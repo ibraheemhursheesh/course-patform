@@ -9,13 +9,13 @@ import Pieces from "./svgs/Pieces";
 import Keyboard from "./svgs/Keyboard";
 import FirstCourseCard from "./FirstCourseCard";
 
-import { Kaisei_Tokumin } from "next/font/google";
+// import { Kaisei_Tokumin } from "next/font/google";
 import AnimationsSvg from "./svgs/AnimationsSvg";
 
-const kaiseiFont = Kaisei_Tokumin({
-  subsets: ["latin"],
-  weight: "400"
-})
+// const kaiseiFont = Kaisei_Tokumin({
+//   subsets: ["latin"],
+//   weight: "400"
+// })
 
 export default function Course({ insideDashboard, course }) {
   // console.log(course.style);

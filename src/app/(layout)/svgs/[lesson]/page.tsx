@@ -15,6 +15,8 @@ import VideoPlayer from "@/components/VideoPlayer";
 export default async function Page({ params }) {
   const { lesson } = await params;
 
+  const videoUrl = process.env.VIDEO_URL;
+
   let lectureTitle = "";
   for (let i = 0; i < courseTwo.length; i++) {
     const section = courseTwo[i];
@@ -30,7 +32,7 @@ export default async function Page({ params }) {
 
   return (
     <div className="w-full">
-      <VideoPlayer lesson={lesson} />
+      <VideoPlayer lesson={lesson} videoUrl={videoUrl} />
 
       <div className="" in="ind">
         <VideoTabs lesson={lesson} lectureTitle={lectureTitle}>

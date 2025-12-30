@@ -31,13 +31,12 @@ export default function VideoPlayer(props) {
     controls = true,
     crossOrigin = "true",
     lesson,
+    videoUrl,
     ...rest
   } = props;
   const [ref, setRef] = useState(null);
   const playerRef = useRef(undefined);
-  const player = new Plyr('#player');
-
-
+  const player = new Plyr("#player");
 
   useEffect(() => {
     if (ref && typeof window !== "undefined") {
@@ -81,13 +80,12 @@ export default function VideoPlayer(props) {
         controls={controls}
         crossOrigin={crossOrigin}
         playsInline={playsInline}
-        poster={poster}
         className="rounded-[inherit] w-full aspect-video"
         {...rest}
       >
-        <source src={process.env.VIDEO_URL} type="video/mp4" size="270" />
-        <source src={process.env.VIDEO_URL} type="video/mp4" size="480" />
-        <source src={process.env.VIDEO_URL} type="video/mp4" size="1080" />
+        <source src={videoUrl} type="video/mp4" size="270" />
+        <source src={videoUrl} type="video/mp4" size="480" />
+        <source src={videoUrl} type="video/mp4" size="1080" />
 
         {/* <track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
 					default />
