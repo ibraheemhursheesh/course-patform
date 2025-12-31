@@ -75,6 +75,7 @@ export default function VideoPlayer(props) {
       <video
         onEnded={(e) => addWatchedLesson(lesson)}
         data-plyr-config='{"previewThumbnails": { "enabled": false, "src": "", "withCredentials": false },"controls": ["play-large", "play", "rewind", "fast-forward", "progress", "current-time", "duration", "mute", "volume", "captions", "settings", "fullscreen"], "speed": { "selected": 1, "options": [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 4] }}'
+        dataPoster="./wel.png"
         ref={setRef}
         controls={controls}
         crossOrigin={crossOrigin}
