@@ -74,9 +74,9 @@ export default function Header({ user }) {
 
             <li>
               {user ? (
-                <span className="cursor-pointer" onClick={logoutWithGoogle}>
+                <button className="cursor-pointer" onClick={logoutWithGoogle}>
                   Logout
-                </span>
+                </button>
               ) : (
                 // <Link href="/account">Account</Link>
                 <Link href="/login">Login</Link>

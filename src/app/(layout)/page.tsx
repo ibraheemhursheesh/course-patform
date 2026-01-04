@@ -132,7 +132,7 @@ function LandingPage() {
 
 function Dashboard() {
   return (
-    <div className="px-10 pb-25 max-w-6xl mx-auto">
+    <div className="px-4 sm:px-10 pb-25 max-w-6xl mx-auto">
       <h1 className="text-4xl font-bold text-center">Access Your Courses</h1>
       <CourseList insideDashboard={true} />
     </div>
