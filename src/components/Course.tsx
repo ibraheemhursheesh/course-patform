@@ -35,17 +35,18 @@ export default function Course({ insideDashboard, course }) {
     >
       {isReactCourse ? (
         <div className="relative aspect-video overflow-hidden">
-          {/* <Pieces />
-           */}
-          <img
+          <Pieces />
+          {/* <img
             src="/back.png"
             width={200}
             height={200}
             className="aspect-video w-full"
-          />
+          /> */}
         </div>
       ) : (
-        <div className="relative aspect-video">{/* <AnimationsSvg /> */}</div>
+        <div className="relative aspect-video">
+          <AnimationsSvg />
+        </div>
       )}
 
       <div className="relative p-4 pb-10">

@@ -1,4 +1,3 @@
-// @ts-nocheck
 export default function AnimationsSvg() {
   return (
     <svg
@@ -60,15 +59,11 @@ export default function AnimationsSvg() {
                 data-animate="pulse"
                 opacity="0.3765185748401564"
                 style={{
-                  "-webkit-transform": "scale(1)",
-                  "-ms-transform": "scale(1)",
                   transform: "scale(1)",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <path
@@ -84,43 +79,31 @@ export default function AnimationsSvg() {
         <g>
           <g
             style={{
-              "-webkit-transform": "translateY(-0.90339px)",
-              "-ms-transform": "translateY(-0.90339px)",
               transform: "translateY(-0.90339px)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g
               style={{
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform": "none",
-                "-ms-transform": "none",
+                transformOrigin: "50% 50%",
+
                 transform: "none",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformBox: "fill-box",
               }}
             >
               <g
                 data-animate="bubbles"
                 data-index={0}
                 style={{
-                  "-webkit-transform": "translateY(0%) translateX(0%)",
-                  "-ms-transform": "translateY(0%) translateX(0%)",
                   transform: "translateY(0%) translateX(0%)",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <circle
@@ -134,43 +117,31 @@ export default function AnimationsSvg() {
           </g>
           <g
             style={{
-              "-webkit-transform": "translateY(-0.45136px)",
-              "-ms-transform": "translateY(-0.45136px)",
               transform: "translateY(-0.45136px)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g
               style={{
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform": "none",
-                "-ms-transform": "none",
+                transformOrigin: "50% 50%",
+
                 transform: "none",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformBox: "fill-box",
               }}
             >
               <g
                 data-animate="bubbles"
                 data-index={1}
                 style={{
-                  "-webkit-transform": "translateY(0%) translateX(0%)",
-                  "-ms-transform": "translateY(0%) translateX(0%)",
                   transform: "translateY(0%) translateX(0%)",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <circle
@@ -188,55 +159,39 @@ export default function AnimationsSvg() {
         </g>
         <g
           style={{
-            "-webkit-transform": "translateY(1.92615px)",
-            "-ms-transform": "translateY(1.92615px)",
             transform: "translateY(1.92615px)",
-            "-webkit-transform-origin": "50% 50%",
-            "-ms-transform-origin": "50% 50%",
-            "transform-origin": "50% 50%",
-            "-webkit-transform-box": "fill-box",
-            "-ms-transform-box": "fill-box",
-            "transform-box": "fill-box",
+
+            transformOrigin: "50% 50%",
+
+            transformBox: "fill-box",
           }}
         >
           <g
             style={{
-              "-webkit-transform": "rotate(0.81708deg)",
-              "-ms-transform": "rotate(0.81708deg)",
               transform: "rotate(0.81708deg)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g
               style={{
-                "-webkit-transform": "none",
-                "-ms-transform": "none",
                 transform: "none",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <g
                 data-animate="background"
                 style={{
-                  "-webkit-transform": "rotate(0deg) scale(1)",
-                  "-ms-transform": "rotate(0deg) scale(1)",
                   transform: "rotate(0deg) scale(1)",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <g className="filter-[url(#filter0_i_359_1453)] dark:filter-[url(#filter0_ii_368_1560)]">
@@ -286,17 +241,11 @@ export default function AnimationsSvg() {
                 <g
                   data-animate="ball"
                   style={{
-                    "-webkit-transform":
-                      "translateY(-23.7042%) translateX(-18.9633%)",
-                    "-ms-transform":
-                      "translateY(-23.7042%) translateX(-18.9633%)",
                     transform: "translateY(-23.7042%) translateX(-18.9633%)",
-                    "-webkit-transform-origin": "50% 50%",
-                    "-ms-transform-origin": "50% 50%",
-                    "transform-origin": "50% 50%",
-                    "-webkit-transform-box": "fill-box",
-                    "-ms-transform-box": "fill-box",
-                    "transform-box": "fill-box",
+
+                    transformOrigin: "50% 50%",
+
+                    transformBox: "fill-box",
                   }}
                 >
                   <circle
@@ -307,15 +256,11 @@ export default function AnimationsSvg() {
                     className="fill-(--light-fill) [--dark-fill:#D6D6D6] [--light-fill:#989898] dark:fill-(--dark-fill)"
                     opacity={1}
                     style={{
-                      "-webkit-transform": "none",
-                      "-ms-transform": "none",
                       transform: "none",
-                      "-webkit-transform-origin": "50% 50%",
-                      "-ms-transform-origin": "50% 50%",
-                      "transform-origin": "50% 50%",
-                      "-webkit-transform-box": "fill-box",
-                      "-ms-transform-box": "fill-box",
-                      "transform-box": "fill-box",
+
+                      transformOrigin: "50% 50%",
+
+                      transformBox: "fill-box",
                     }}
                   />
                 </g>
@@ -327,43 +272,31 @@ export default function AnimationsSvg() {
       <g className="origin-bottom!">
         <g
           style={{
-            "-webkit-transform": "translateY(0.84457px)",
-            "-ms-transform": "translateY(0.84457px)",
             transform: "translateY(0.84457px)",
-            "-webkit-transform-origin": "50% 50%",
-            "-ms-transform-origin": "50% 50%",
-            "transform-origin": "50% 50%",
-            "-webkit-transform-box": "fill-box",
-            "-ms-transform-box": "fill-box",
-            "transform-box": "fill-box",
+
+            transformOrigin: "50% 50%",
+
+            transformBox: "fill-box",
           }}
         >
           <g
             data-animate="background"
             style={{
-              "-webkit-transform": "scale(1)",
-              "-ms-transform": "scale(1)",
               transform: "scale(1)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g
               className="filter-[url(#filter4_i_359_1453)] dark:filter-[url(#filter4_i_368_1560)]"
               style={{
-                "-webkit-transform": "rotate(1.92615deg)",
-                "-ms-transform": "rotate(1.92615deg)",
                 transform: "rotate(1.92615deg)",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <path
@@ -376,15 +309,11 @@ export default function AnimationsSvg() {
             data-animate="hand"
             className="transform-border"
             style={{
-              "-webkit-transform": "translateX(0%) translateY(0%) rotate(0deg)",
-              "-ms-transform": "translateX(0%) translateY(0%) rotate(0deg)",
               transform: "translateX(0%) translateY(0%) rotate(0deg)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <path
@@ -444,43 +373,31 @@ export default function AnimationsSvg() {
       <g className="origin-bottom-right!">
         <g
           style={{
-            "-webkit-transform": "translateY(0.90339px)",
-            "-ms-transform": "translateY(0.90339px)",
             transform: "translateY(0.90339px)",
-            "-webkit-transform-origin": "50% 50%",
-            "-ms-transform-origin": "50% 50%",
-            "transform-origin": "50% 50%",
-            "-webkit-transform-box": "fill-box",
-            "-ms-transform-box": "fill-box",
-            "transform-box": "fill-box",
+
+            transformOrigin: "50% 50%",
+
+            transformBox: "fill-box",
           }}
         >
           <g
             data-animate="background"
             style={{
-              "-webkit-transform": "rotate(0deg) scale(1)",
-              "-ms-transform": "rotate(0deg) scale(1)",
               transform: "rotate(0deg) scale(1)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g
               className="filter-[url(#filter7_i_359_1453)] dark:filter-[url(#filter7_i_368_1560)]"
               style={{
-                "-webkit-transform": "rotate(0.63579deg)",
-                "-ms-transform": "rotate(0.63579deg)",
                 transform: "rotate(0.63579deg)",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <path
@@ -492,29 +409,21 @@ export default function AnimationsSvg() {
           <g
             data-animate="clock-and-bells"
             style={{
-              "-webkit-transform-origin": "543.879px 186.54px",
-              "-ms-transform-origin": "543.879px 186.54px",
-              "transform-origin": "543.879px 186.54px",
-              "-webkit-transform-box": "view-box",
-              "-ms-transform-box": "view-box",
-              "transform-box": "view-box",
-              "-webkit-transform": "rotate(0deg) scale(1)",
-              "-ms-transform": "rotate(0deg) scale(1)",
+              transformOrigin: "543.879px 186.54px",
+
+              transformBox: "view-box",
+
               transform: "rotate(0deg) scale(1)",
             }}
           >
             <g
               data-animate="clock"
               style={{
-                "-webkit-transform": "none",
-                "-ms-transform": "none",
                 transform: "none",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <circle
@@ -526,15 +435,11 @@ export default function AnimationsSvg() {
               <g
                 data-animate="minute-hand"
                 style={{
-                  "-webkit-transform": "rotate(0deg)",
-                  "-ms-transform": "rotate(0deg)",
                   transform: "rotate(0deg)",
-                  "-webkit-transform-origin": "543.876px 186.544px",
-                  "-ms-transform-origin": "543.876px 186.544px",
-                  "transform-origin": "543.876px 186.544px",
-                  "-webkit-transform-box": "view-box",
-                  "-ms-transform-box": "view-box",
-                  "transform-box": "view-box",
+
+                  transformOrigin: "543.876px 186.544px",
+
+                  transformBox: "view-box",
                 }}
               >
                 <line
@@ -550,15 +455,11 @@ export default function AnimationsSvg() {
               <g
                 data-animate="hour-hand"
                 style={{
-                  "-webkit-transform": "rotate(120deg)",
-                  "-ms-transform": "rotate(120deg)",
                   transform: "rotate(120deg)",
-                  "-webkit-transform-origin": "543.876px 186.539px",
-                  "-ms-transform-origin": "543.876px 186.539px",
-                  "transform-origin": "543.876px 186.539px",
-                  "-webkit-transform-box": "view-box",
-                  "-ms-transform-box": "view-box",
-                  "transform-box": "view-box",
+
+                  transformOrigin: "543.876px 186.539px",
+
+                  transformBox: "view-box",
                 }}
               >
                 <line
@@ -575,31 +476,22 @@ export default function AnimationsSvg() {
             <g
               data-animate="bells"
               style={{
-                "-webkit-transform":
-                  "translateX(0%) translateY(0%) rotate(0deg)",
-                "-ms-transform": "translateX(0%) translateY(0%) rotate(0deg)",
                 transform: "translateX(0%) translateY(0%) rotate(0deg)",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <g
                 data-animate="bell"
                 data-index={0}
                 style={{
-                  "-webkit-transform": "none",
-                  "-ms-transform": "none",
                   transform: "none",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <path
@@ -612,15 +504,11 @@ export default function AnimationsSvg() {
                 data-animate="bell"
                 data-index={1}
                 style={{
-                  "-webkit-transform": "none",
-                  "-ms-transform": "none",
                   transform: "none",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <path
@@ -645,43 +533,31 @@ export default function AnimationsSvg() {
         <g>
           <g
             style={{
-              "-webkit-transform": "translateY(0.3831px)",
-              "-ms-transform": "translateY(0.3831px)",
               transform: "translateY(0.3831px)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g
               data-animate="scale"
               style={{
-                "-webkit-transform": "scale(1)",
-                "-ms-transform": "scale(1)",
                 transform: "scale(1)",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <g
                 className="filter-[url(#filter6_i_359_1453)] dark:filter-[url(#filter6_i_368_1560)]"
                 style={{
-                  "-webkit-transform": "rotate(108.867deg)",
-                  "-ms-transform": "rotate(108.867deg)",
                   transform: "rotate(108.867deg)",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <path
@@ -693,29 +569,21 @@ export default function AnimationsSvg() {
             <g
               data-animate="scale"
               style={{
-                "-webkit-transform": "scale(1)",
-                "-ms-transform": "scale(1)",
                 transform: "scale(1)",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <g
                 data-animate="timeline-container"
                 style={{
-                  "-webkit-transform": "rotate(0deg)",
-                  "-ms-transform": "rotate(0deg)",
                   transform: "rotate(0deg)",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               >
                 <path
@@ -724,15 +592,11 @@ export default function AnimationsSvg() {
                   d="m217.429 81.691 5.204-32.34"
                   className="stroke-[#989898] dark:stroke-[#D6D6D6]"
                   style={{
-                    "-webkit-transform": "none",
-                    "-ms-transform": "none",
                     transform: "none",
-                    "-webkit-transform-origin": "50% 50%",
-                    "-ms-transform-origin": "50% 50%",
-                    "transform-origin": "50% 50%",
-                    "-webkit-transform-box": "fill-box",
-                    "-ms-transform-box": "fill-box",
-                    "transform-box": "fill-box",
+
+                    transformOrigin: "50% 50%",
+
+                    transformBox: "fill-box",
                   }}
                 />
               </g>
@@ -741,21 +605,17 @@ export default function AnimationsSvg() {
               data-animate="timeline-container"
               className="origin-center transform-view"
               style={{
-                "-webkit-transform": "rotate(0deg)",
-                "-ms-transform": "rotate(0deg)",
                 transform: "rotate(0deg)",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <g>
                 <mask
                   id="mask2_197_321"
-                  style={{ "mask-type": "alpha" }}
+                  style={{ maskType: "alpha" }}
                   maskUnits="userSpaceOnUse"
                   x={185}
                   y={40}
@@ -764,15 +624,11 @@ export default function AnimationsSvg() {
                 >
                   <g
                     style={{
-                      "-webkit-transform": "rotate(9deg)",
-                      "-ms-transform": "rotate(9deg)",
                       transform: "rotate(9deg)",
-                      "-webkit-transform-origin": "185px 40px",
-                      "-ms-transform-origin": "185px 40px",
-                      "transform-origin": "185px 40px",
-                      "-webkit-transform-box": "view-box",
-                      "-ms-transform-box": "view-box",
-                      "transform-box": "view-box",
+
+                      transformOrigin: "185px 40px",
+
+                      transformBox: "view-box",
                     }}
                   >
                     <rect
@@ -813,15 +669,11 @@ export default function AnimationsSvg() {
                     strokeDashoffset="0px"
                     strokeDasharray="1px 1px"
                     style={{
-                      "-webkit-transform": "translateY(0%) translateX(0%)",
-                      "-ms-transform": "translateY(0%) translateX(0%)",
                       transform: "translateY(0%) translateX(0%)",
-                      "-webkit-transform-origin": "50% 50%",
-                      "-ms-transform-origin": "50% 50%",
-                      "transform-origin": "50% 50%",
-                      "-webkit-transform-box": "fill-box",
-                      "-ms-transform-box": "fill-box",
-                      "transform-box": "fill-box",
+
+                      transformOrigin: "50% 50%",
+
+                      transformBox: "fill-box",
                     }}
                   />
                   <line
@@ -838,15 +690,11 @@ export default function AnimationsSvg() {
                     strokeDashoffset="0px"
                     strokeDasharray="1px 1px"
                     style={{
-                      "-webkit-transform": "translateY(0%) translateX(0%)",
-                      "-ms-transform": "translateY(0%) translateX(0%)",
                       transform: "translateY(0%) translateX(0%)",
-                      "-webkit-transform-origin": "50% 50%",
-                      "-ms-transform-origin": "50% 50%",
-                      "transform-origin": "50% 50%",
-                      "-webkit-transform-box": "fill-box",
-                      "-ms-transform-box": "fill-box",
-                      "transform-box": "fill-box",
+
+                      transformOrigin: "50% 50%",
+
+                      transformBox: "fill-box",
                     }}
                   />
                 </g>
@@ -859,19 +707,15 @@ export default function AnimationsSvg() {
                   y={40}
                   width={80}
                   height={60}
-                  style={{ "mask-type": "alpha" }}
+                  style={{ maskType: "alpha" }}
                 >
                   <g
                     style={{
-                      "-webkit-transform": "rotate(9deg)",
-                      "-ms-transform": "rotate(9deg)",
                       transform: "rotate(9deg)",
-                      "-webkit-transform-origin": "185px 40px",
-                      "-ms-transform-origin": "185px 40px",
-                      "transform-origin": "185px 40px",
-                      "-webkit-transform-box": "view-box",
-                      "-ms-transform-box": "view-box",
-                      "transform-box": "view-box",
+
+                      transformOrigin: "185px 40px",
+
+                      transformBox: "view-box",
                     }}
                   >
                     <rect
@@ -880,15 +724,11 @@ export default function AnimationsSvg() {
                       fill="#D9D9D9"
                       width="37.849999999999994px"
                       style={{
-                        "-webkit-transform": "translateX(227.15px)",
-                        "-ms-transform": "translateX(227.15px)",
                         transform: "translateX(227.15px)",
-                        "-webkit-transform-origin": "50% 50%",
-                        "-ms-transform-origin": "50% 50%",
-                        "transform-origin": "50% 50%",
-                        "-webkit-transform-box": "fill-box",
-                        "-ms-transform-box": "fill-box",
-                        "transform-box": "fill-box",
+
+                        transformOrigin: "50% 50%",
+
+                        transformBox: "fill-box",
                       }}
                     />
                   </g>
@@ -922,15 +762,11 @@ export default function AnimationsSvg() {
                     strokeDashoffset="0px"
                     strokeDasharray="1px 1px"
                     style={{
-                      "-webkit-transform": "translateY(0%) translateX(0%)",
-                      "-ms-transform": "translateY(0%) translateX(0%)",
                       transform: "translateY(0%) translateX(0%)",
-                      "-webkit-transform-origin": "50% 50%",
-                      "-ms-transform-origin": "50% 50%",
-                      "transform-origin": "50% 50%",
-                      "-webkit-transform-box": "fill-box",
-                      "-ms-transform-box": "fill-box",
-                      "transform-box": "fill-box",
+
+                      transformOrigin: "50% 50%",
+
+                      transformBox: "fill-box",
                     }}
                   />
                   <line
@@ -947,15 +783,11 @@ export default function AnimationsSvg() {
                     strokeDashoffset="0px"
                     strokeDasharray="1px 1px"
                     style={{
-                      "-webkit-transform": "translateY(0%) translateX(0%)",
-                      "-ms-transform": "translateY(0%) translateX(0%)",
                       transform: "translateY(0%) translateX(0%)",
-                      "-webkit-transform-origin": "50% 50%",
-                      "-ms-transform-origin": "50% 50%",
-                      "transform-origin": "50% 50%",
-                      "-webkit-transform-box": "fill-box",
-                      "-ms-transform-box": "fill-box",
-                      "transform-box": "fill-box",
+
+                      transformOrigin: "50% 50%",
+
+                      transformBox: "fill-box",
                     }}
                   />
                 </g>
@@ -967,43 +799,31 @@ export default function AnimationsSvg() {
       <g className="origin-bottom!">
         <g
           style={{
-            "-webkit-transform": "translateY(0.60226px)",
-            "-ms-transform": "translateY(0.60226px)",
             transform: "translateY(0.60226px)",
-            "-webkit-transform-origin": "50% 50%",
-            "-ms-transform-origin": "50% 50%",
-            "transform-origin": "50% 50%",
-            "-webkit-transform-box": "fill-box",
-            "-ms-transform-box": "fill-box",
-            "transform-box": "fill-box",
+
+            transformOrigin: "50% 50%",
+
+            transformBox: "fill-box",
           }}
         >
           <g
             data-animate="background"
             style={{
-              "-webkit-transform": "scale(1)",
-              "-ms-transform": "scale(1)",
               transform: "scale(1)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g
               className="filter-[url(#filter5_i_359_1453)] dark:filter-[url(#filter5_i_368_1560)]"
               style={{
-                "-webkit-transform": "rotate(3.07938deg)",
-                "-ms-transform": "rotate(3.07938deg)",
                 transform: "rotate(3.07938deg)",
-                "-webkit-transform-origin": "50% 50%",
-                "-ms-transform-origin": "50% 50%",
-                "transform-origin": "50% 50%",
-                "-webkit-transform-box": "fill-box",
-                "-ms-transform-box": "fill-box",
-                "transform-box": "fill-box",
+
+                transformOrigin: "50% 50%",
+
+                transformBox: "fill-box",
               }}
             >
               <path
@@ -1015,15 +835,11 @@ export default function AnimationsSvg() {
           <g
             data-animate="whole"
             style={{
-              "-webkit-transform": "translateY(0%) rotate(0deg) scale(1)",
-              "-ms-transform": "translateY(0%) rotate(0deg) scale(1)",
               transform: "translateY(0%) rotate(0deg) scale(1)",
-              "-webkit-transform-origin": "50% 50%",
-              "-ms-transform-origin": "50% 50%",
-              "transform-origin": "50% 50%",
-              "-webkit-transform-box": "fill-box",
-              "-ms-transform-box": "fill-box",
-              "transform-box": "fill-box",
+
+              transformOrigin: "50% 50%",
+
+              transformBox: "fill-box",
             }}
           >
             <g>
@@ -1034,17 +850,11 @@ export default function AnimationsSvg() {
                     data-animate="bulb-mask"
                     opacity={1}
                     style={{
-                      "-webkit-transform":
-                        "translateY(0%) translateX(0%) rotate(0deg)",
-                      "-ms-transform":
-                        "translateY(0%) translateX(0%) rotate(0deg)",
                       transform: "translateY(0%) translateX(0%) rotate(0deg)",
-                      "-webkit-transform-origin": "50% 50%",
-                      "-ms-transform-origin": "50% 50%",
-                      "transform-origin": "50% 50%",
-                      "-webkit-transform-box": "fill-box",
-                      "-ms-transform-box": "fill-box",
-                      "transform-box": "fill-box",
+
+                      transformOrigin: "50% 50%",
+
+                      transformBox: "fill-box",
                     }}
                   >
                     <path
@@ -1067,15 +877,11 @@ export default function AnimationsSvg() {
                 className="fill-[#989898] dark:fill-[#D6D6D6]"
                 opacity={1}
                 style={{
-                  "-webkit-transform": "translateY(0%) translateX(0%)",
-                  "-ms-transform": "translateY(0%) translateX(0%)",
                   transform: "translateY(0%) translateX(0%)",
-                  "-webkit-transform-origin": "50% 50%",
-                  "-ms-transform-origin": "50% 50%",
-                  "transform-origin": "50% 50%",
-                  "-webkit-transform-box": "fill-box",
-                  "-ms-transform-box": "fill-box",
-                  "transform-box": "fill-box",
+
+                  transformOrigin: "50% 50%",
+
+                  transformBox: "fill-box",
                 }}
               />
             </g>
