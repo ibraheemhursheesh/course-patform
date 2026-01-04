@@ -33,19 +33,19 @@ export default function Course({ insideDashboard, course }) {
       className="relative rounded-xl bg-cover border border-zinc-300 overflow-hidden bg-white text-black nth-[2]:mt-7.5 grid:nth-[2]:mt-0"
       key={course.id}
     >
-
       {isReactCourse ? (
-   
-  <div className="relative aspect-video overflow-hidden">  
-
-        <Pieces />
-  
-</div>
+        <div className="relative aspect-video overflow-hidden">
+          {/* <Pieces />
+           */}
+          <img
+            src="/back.png"
+            width={200}
+            height={200}
+            className="aspect-video w-full"
+          />
+        </div>
       ) : (
-          <div className="relative aspect-video">
- 
-              <AnimationsSvg />
-          </div>
+        <div className="relative aspect-video">{/* <AnimationsSvg /> */}</div>
       )}
 
       <div className="relative p-4 pb-10">

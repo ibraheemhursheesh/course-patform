@@ -32,7 +32,11 @@ export default async function Page({ params }) {
 
   return (
     <div className="w-full">
-      <VideoPlayer lesson={lesson} videoUrl={videoUrl} />
+      <VideoPlayer
+        lesson={lesson}
+        course="react-from-scratch"
+        videoUrl={videoUrl}
+      />
 
       <div className="" in="ind">
         <VideoTabs lesson={lesson} lectureTitle={lectureTitle}>

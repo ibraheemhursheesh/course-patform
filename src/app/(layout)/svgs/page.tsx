@@ -26,20 +26,26 @@ export default async function page() {
 
   console.log(data);
 
-  const watchedLessons = data[0] ? data[0]?.watchedLessons : [];
+  const watchedLessons = data[0] ? data[0]?.watchedLessons : {};
 
-  console.log(watchedLessons);
+  console.log("watchedLessons", watchedLessons);
 
-  const lessonNumber = 60;
+  const lessonNumber = 30;
 
-  const progress = Math.floor((watchedLessons.length / 100) * lessonNumber);
+  const progress = watchedLessons["svgs"]
+    ? Math.floor((watchedLessons["svgs"]?.length * 100) / lessonNumber)
+    : 0;
+
+  console.log("svgs lessons", watchedLessons["svgs"]);
 
   return (
     <div className="">
       <div className="relative px-5 flex flex-wrap gap-10 justify-center">
         <div className="w-lg">
           <div className="w-full max-w-lg  sticky top-10 overflow-hidden">
-            <AnimationsSvg />
+            <div className="border-2 border-zinc-300 rounded-md">
+              <AnimationsSvg />
+            </div>
 
             <h1 className="text-xl mobile:text-3xl text-center font-bold relative mt-3">
               Scalable Vector Graphics
@@ -72,10 +78,10 @@ export default async function page() {
               </div>
             </div>
 
-            {/* <div className="w-[75%] mx-auto">
+            <div className="w-[75%] mx-auto">
               {progress}%
               <Progress value={progress} className="mt-3" />
-            </div> */}
+            </div>
           </div>
         </div>
         <div className="relative bg-white py-4 w-lg">
@@ -90,9 +96,11 @@ export default async function page() {
 
                   <ul className={``}>
                     {section.lectures.map((lecture, index) => {
-                      const isWatched = watchedLessons.find(
-                        (lesson) => lecture.id === lesson
-                      );
+                      const isWatched = watchedLessons["svgs"]
+                        ? watchedLessons["svgs"].find(
+                            (lesson) => lecture.id === lesson
+                          )
+                        : false;
                       return (
                         <li key={lecture.title} className="mt-3">
                           <Link

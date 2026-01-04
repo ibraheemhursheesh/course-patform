@@ -212,8 +212,8 @@ export const toggleUpvote = async (toggle, commentId, lectureId, pathname) => {
   }
 };
 
-export const addWatchedLesson = async (lesson) => {
-  console.log("lesson from server action", lesson);
+export const addWatchedLesson = async (course, lesson) => {
+  console.log("course and lesson from server action", course, lesson);
   const supabase = await createClient();
 
   const {
@@ -229,32 +229,36 @@ export const addWatchedLesson = async (lesson) => {
   console.log("WHAT IS INSIDE DATABASE", current);
   if (currentError) console.error(currentError);
 
+  // this if statement is to create the watchedLessons column if it does not exist
   if (!current[0]) {
     const { data, error } = await supabase.from("user_data").insert({
       user_id: user?.id,
-      watchedLessons: [],
+      watchedLessons: {},
     });
 
     if (error)
       console.error("error while creating watchedLessons column", error);
   }
 
-  const isWatched = current[0]
-    ? current[0].watchedLessons.find(
-        (watchedLesson) => watchedLesson === lesson
-      )
-    : false;
+  const watchedLessons = current[0]?.watchedLessons || {};
+
+  // Ensure watchedLessons is an object
+  if (!watchedLessons[course]) {
+    watchedLessons[course] = [];
+  }
+
+  const isWatched = watchedLessons[course].includes(lesson);
 
   if (isWatched) return;
-  const watchedLessons = current[0]?.watchedLessons;
-  const updated = [...(watchedLessons || []), lesson];
+
+  watchedLessons[course].push(lesson);
 
   const { data, error } = await supabase
     .from("user_data")
-    .update({ watchedLessons: updated })
+    .update({ watchedLessons })
     .eq("user_id", user.id);
 
-  revalidatePath("/react-from-scratch");
+  revalidatePath(`/${course}`);
 
   if (error) console.error(error.message);
 };

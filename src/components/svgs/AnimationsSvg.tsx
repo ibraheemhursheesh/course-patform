@@ -7,22 +7,18 @@ export default function AnimationsSvg() {
       height={319}
       fill="none"
       viewBox="0 0 622 319"
-      className="h-auto overflow-visible w-[95%] mx-auto mt-5"
+      className="h-auto overflow-visible w-[95%] mx-auto mb-9 mt-4.5"
       role="img"
       aria-label="Interactive animation showcasing various microinteractions"
     >
       <g className="group origin-bottom-left!">
         <g
           style={{
-            "-webkit-transform": "translateY(0.90339px)",
-            "-ms-transform": "translateY(0.90339px)",
             transform: "translateY(0.90339px)",
-            "-webkit-transform-origin": "50% 50%",
-            "-ms-transform-origin": "50% 50%",
-            "transform-origin": "50% 50%",
-            "-webkit-transform-box": "fill-box",
-            "-ms-transform-box": "fill-box",
-            "transform-box": "fill-box",
+
+            transformOrigin: "50% 50%",
+
+            transformBox: "fill-box",
           }}
         >
           <g data-animate="background">
