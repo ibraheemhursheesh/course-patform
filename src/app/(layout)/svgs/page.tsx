@@ -43,8 +43,14 @@ export default async function page() {
       <div className="relative px-5 flex flex-wrap gap-10 justify-center">
         <div className="w-lg">
           <div className="w-full max-w-lg  sticky top-10 overflow-hidden">
-            <div className="border-2 border-zinc-300 rounded-md">
-              <AnimationsSvg />
+            <div className=" rounded-md">
+              <Image
+                src="/sss.png"
+                loading="eager"
+                className="w-full rounded-2xl"
+                width={672}
+                height={448}
+              />
             </div>
 
             <h1 className="text-xl mobile:text-3xl text-center font-bold relative mt-3">

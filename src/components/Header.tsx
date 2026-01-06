@@ -74,12 +74,17 @@ export default function Header({ user }) {
 
             <li>
               {user ? (
-                <button className="cursor-pointer" onClick={logoutWithGoogle}>
+                <button className="cursor-pointer " onClick={logoutWithGoogle}>
                   Logout
                 </button>
               ) : (
                 // <Link href="/account">Account</Link>
-                <Link href="/login">Login</Link>
+                <Link
+                  href="/login"
+                  className="bg-black/70 text-white px-4 py-2 rounded-full"
+                >
+                  Login
+                </Link>
               )}
             </li>
           </ul>

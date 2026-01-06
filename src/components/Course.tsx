@@ -30,76 +30,73 @@ export default function Course({ insideDashboard, course }) {
   ];
   return (
     <li
-      className="relative rounded-xl bg-cover border border-zinc-300 overflow-hidden bg-white text-black nth-[2]:mt-7.5 grid:nth-[2]:mt-0"
+      className="relative bg-white rounded-2xl text-black nth-[2]:mt-7.5 grid:nth-[2]:mt-0"
       key={course.id}
     >
-      {isReactCourse ? (
-        <div className="relative aspect-video overflow-hidden">
-          <Pieces />
-          {/* <img
-            src="/back.png"
-            width={200}
-            height={200}
-            className="aspect-video w-full"
-          /> */}
-        </div>
-      ) : (
-        <div className="relative aspect-video">
-          <AnimationsSvg />
-        </div>
-      )}
-
-      <div className="relative p-4 pb-10">
-        <h2 className="text-3xl font-bold mt-3">{course.title}</h2>
-        <p className="mt-2 text-zinc-700">{course.shortDescription}</p>
-
-        {!insideDashboard && (
-          <>
-            <p className="text-base max-w-2xl mt-5">{course.description}</p>
-            {/* <h3 className="mt-3">Tech stack:</h3>
-            <ul className="flex gap-2 mt-1">
-              {course.techStack.map((tech, index) => (
-                <li
-                  className={`text-sm px-2 py-1 rounded-sm font-medium ${skillClassNames[index]}`}
-                  key={tech}
-                >
-                  {tech}
-                </li>
-              ))}
-            </ul> */}
-          </>
-        )}
-
-        <div className="flex flex-wrap gap-5 mt-8 mb-5">
-          <div className="flex gap-3">
+      <div className="relative">
+        {isReactCourse ? (
+          <div>
             <Image
-              alt="Instructor Avatar"
-              className="rounded-full shrink-0 size-10.5"
-              src="/avatar2.png"
-              width={50}
-              height={50}
+              src="/jw.png"
+              loading="eager"
+              className="w-full rounded-2xl"
+              width={672}
+              height={448}
             />
-            <div>
-              <p className="text-zinc-700 text-xs lg:text-sm">Taught by</p>
-              <p className="text-sm lg:text-base">{course.taughtBy}</p>
-            </div>
           </div>
-          <div className="flex gap-3 items-center">
-            <Clock className="hidden sm:block" size={30} />
-            <div>
-              <p className="text-zinc-700 text-xs lg:text-sm">Length</p>
-              <p className="text-sm lg:text-base">{course.length}</p>
-            </div>
+        ) : (
+          <div>
+            <Image
+              src="/sss.png"
+              loading="eager"
+              className="w-full rounded-2xl"
+              width={672}
+              height={448}
+            />
           </div>
-        </div>
-        {insideDashboard && (
-          <Link
-            className="rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-zinc-800 mt-5 block w-full max-w-sm mx-auto h-10 px-4 has-[>svg]:px-3 text-center leading-10"
-            href={"/" + course.slug}
-          >
-            Watch now
-          </Link>
         )}
+
+        <div className="relative px-4 pb-10">
+          <h2 className="text-3xl font-bold mt-3">{course.title}</h2>
+          {/* <p className="mt-2 text-zinc-700">{course.shortDescription}</p> */}
+
+          {/* {!insideDashboard && (
+          <> */}
+          <p className="text-base max-w-2xl mt-2">{course.description}</p>
+          {/* </>
+        )} */}
+
+          <div className="flex flex-wrap gap-5 mt-2 sm:mt-5 mb-5">
+            <div className="flex gap-3">
+              <Image
+                alt="Instructor Avatar"
+                className="rounded-full shrink-0 size-10.5"
+                src="/avatar2.png"
+                width={50}
+                height={50}
+              />
+              <div>
+                <p className="text-zinc-700 text-xs lg:text-sm">Taught by</p>
+                <p className="text-sm lg:text-base">{course.taughtBy}</p>
+              </div>
+            </div>
+            <div className="flex gap-3 items-center">
+              <Clock className="hidden sm:block" size={30} />
+              <div>
+                <p className="text-zinc-700 text-xs lg:text-sm">Length</p>
+                <p className="text-sm lg:text-base">{course.length}</p>
+              </div>
+            </div>
+          </div>
+          {insideDashboard && (
+            <Link
+              className="rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-zinc-800 mt-5 block w-full max-w-sm mx-auto h-10 px-4 has-[>svg]:px-3 text-center leading-10"
+              href={"/" + course.slug}
+            >
+              Watch now
+            </Link>
+          )}
+        </div>
       </div>
     </li>
   );
